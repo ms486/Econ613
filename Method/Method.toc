@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Maximum Likelihood}{9}{0}{1}
+\beamer@sectionintoc {2}{GMM}{27}{0}{2}
+\beamer@sectionintoc {3}{Numerical Optimization}{38}{0}{3}
+\beamer@sectionintoc {4}{Inference}{57}{0}{4}

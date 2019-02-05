@@ -1,0 +1,166 @@
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+\usepackage[latin1]{inputenc}
+\usepackage{setspace,dsfont}
+\usepackage{amsmath,amssymb,pdfpages}
+\usepackage[longnamesfirst,nonamebreak]{natbib}
+\usepackage[english]{babel}
+\usepackage{eurosym,multirow,hyperref,cmll}
+\usepackage{listings}
+
+\newcommand{\Lik}{\mathcal{L}}
+\newcommand{\lau}{\lambda_u}
+\newcommand{\wi}{\underline{w}}
+\newcommand{\m}{\mathcal{M}}
+\newcommand{\wa}{\overline{w}}
+\newcommand{\lae}{\lambda_e}
+\newcommand{\1}{\mathbb{1}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\f}{\mathfrak{f}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+
+\hypersetup{
+    colorlinks,%
+    citecolor=blue,%
+    filecolor=blue,%
+    linkcolor=blue,%
+    urlcolor=blue,
+}
+%\usetheme{Boadilla}
+%\usetheme{Marburg}
+%\usetheme{Hannover}
+%\usetheme{Pittsburgh}
+%\usetheme{umbc1}
+\usetheme{Montpellier}
+%\usetheme{Singapore}
+%\usetheme{}
+%\usetheme{}
+%\lstset {language=C++}
+
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+\begin{document}
+\begin{frame}
+\title{ECON 613: Applied Econometrics}
+\subtitle{Introduction}
+\titlepage
+\end{frame}
+
+\frame{\frametitle{Objectives}
+\begin{itemize}
+\item Present a set of models to understand, evaluate and predict the behaviour of economic agents.
+\begin{itemize}
+\item Why? 
+\item How?
+\item What?
+\end{itemize}
+\item Model Selection.
+\item Implementation.
+\item Interpretation.
+\end{itemize}
+}
+
+\frame{\frametitle{Program}
+\begin{itemize}
+\item Methods
+\begin{itemize}
+\item Maximum Likelihood Estimation Techniques
+\item GMM
+\item Numerical Optimization
+\item Bootstrap
+\end{itemize}
+\item Methods for cross section data.
+\item Panel data analysis
+\item Treatment Evaluation
+\item Semiparametric Methods (Time)
+\end{itemize}
+}
+
+\frame{\frametitle{Method}
+\begin{itemize}
+\item Final objective is to be able to carry out economic research using a ``commercial", push button software i.e. Stata
+\item My objective is to make sure that students understand what goes on behind the black box. As a consequence, you won't be doing any stata before the last two sessions of the class. 
+\item Instead econometrics models will be computed using matrix based languages like R and Matlab.
+\end{itemize}
+}
+
+
+\frame{\frametitle{Organization}
+\begin{itemize}
+\item Class time
+\item Office hours: Email appointment 
+\item TAs:
+\begin{itemize}
+\item Chengdai Huang: chengdai.huang@duke.edu
+\item Shijie Jin: shijie.jin@duke.edu
+\end{itemize}
+\item Questions? 
+\end{itemize}
+}
+
+\frame{\frametitle{Evaluation (1): Problem sets (individual)}
+\begin{itemize}
+\item Data Manipulation (R/Stata/...)
+\item OLS (Matlab/R)
+\item Discrete Choice (Matlab/R)
+\item Limited Dependent Variables (Matlab/R)
+\item Panel Data (Matlab/R)
+\item Recap (Stata)
+\end{itemize}
+}
+
+\frame{\frametitle{Evaluation (2): Reading notes}
+\begin{itemize}
+\item Motivation.
+\item How: Which models? Which specification? Measurement issues.
+\item Findings. Re-interpretation.
+\end{itemize}
+}
+
+\frame{\frametitle{Evaluation (2): Reading notes (individual)}
+\begin{itemize}
+\item Gender Gaps in Performance: Evidence from Young Lawyers (Azmat \& Ferrer)
+\item Bargaining, Sorting, and the Gender Wage Gap: Quantifying the Impact of Firms on the Relative Pay of Women (Card, Cardoso \& Kline)
+\item Children and Gender Inequality: Evidence from Denmark (Kleven, Landais \& Sogaard)
+\item Gender Identity, Relative Income Within Households: (Bertrand, Kamenica \& Pan)
+\item Selection, Investment, and Women's Relative Wages over Time (Mulligan \& Rubinstein)
+\end{itemize}
+}
+
+\frame{\frametitle{Evaluation (3): Research Proposal (groups of 2 or 3)}
+\begin{itemize}
+\item Topic on gender.
+\item Ideal data and Model.
+\end{itemize}
+}
+
+
+\frame{\frametitle{Details}
+\begin{itemize}
+\item Github
+\item Learn about R and Matlab
+\item Reference: A. Colin Cameron and Pravin K. Trivedi (2005), Microeconometrics: Methods and Applications, Cambridge University Press.
+\end{itemize}
+}
+
+
+\frame{\tableofcontents[currentsection,hideothersubsections,currentsubsection]}
+
+\section{Methods}
+\section{Cross section Analysis}
+\section{Panel Data Analysis}
+\section{Treatment Evaluation}
+
+
+\end{document}
+
+

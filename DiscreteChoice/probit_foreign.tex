@@ -1,0 +1,34 @@
+
+\begin{table}[hb!]
+\footnotesize
+\begin{center}
+\begin{tabular}{l c c }
+\toprule
+ & Native & Immigrants \\
+\midrule
+(Intercept)    & $-6.85$       & $-67.57$      \\
+               & $(11.24)$     & $(48.18)$     \\
+income         & $1.17$        & $13.31$       \\
+               & $(2.11)$      & $(9.16)$      \\
+age            & $0.24^{***}$  & $0.14$        \\
+               & $(0.05)$      & $(0.09)$      \\
+education      & $0.05^{*}$    & $-0.03$       \\
+               & $(0.02)$      & $(0.04)$      \\
+youngkids      & $-0.76^{***}$ & $-0.75^{***}$ \\
+               & $(0.13)$      & $(0.18)$      \\
+oldkids        & $-0.16^{**}$  & $-0.18$       \\
+               & $(0.06)$      & $(0.12)$      \\
+I($age^2$)       & $-0.00^{***}$ & $-0.00$       \\
+               & $(0.00)$      & $(0.00)$      \\
+I($income^2$)    & $-0.09$       & $-0.66$       \\
+               & $(0.10)$      & $(0.43)$      \\
+\midrule
+Log Likelihood & -384.24       & -117.82       \\
+Num. obs.      & 656           & 216           \\
+\bottomrule
+\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Probit Models}
+\label{table:coefficients}
+\end{center}
+\end{table}

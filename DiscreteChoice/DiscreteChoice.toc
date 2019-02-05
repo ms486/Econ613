@@ -1,0 +1,3 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Binary Response Model}{2}{0}{1}
+\beamer@sectionintoc {2}{Multinomial Choices}{39}{0}{2}
