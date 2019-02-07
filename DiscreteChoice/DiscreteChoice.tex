@@ -8,6 +8,7 @@
 \usepackage{eurosym,multirow,hyperref,cmll}
 \usepackage{listings}
 \usepackage{verbatim,booktabs}
+\usepackage{verbatimbox}
 
 \newcommand{\Lik}{\mathcal{L}}
 \newcommand{\lau}{\lambda_u}
@@ -765,7 +766,7 @@ where $\bar{\beta}_i = \sum_{l} p_{il}\beta_l$
 
 \begin{frame}\frametitle{Independence of Irrelevant Alternatives}
 \begin{itemize}
- \item A limitation of the conditional logit and multinomial logit is that discrimination among the m alternatives reduces to a series of pairwise comparisons that are unaffected by the characteristics of alternatives other than the pair under consideration. 
+ \item A property of the conditional logit and multinomial logit is that discrimination among the m alternatives reduces to a series of pairwise comparisons that are unaffected by the characteristics of alternatives other than the pair under consideration. 
 \item The choice probabilities must be unaffected by the removal of one alternative. 
 \end{itemize}
 That is because
@@ -784,6 +785,22 @@ That is because
 \item  Compare $\Lik_{subset}(\theta_{full})$ and $\Lik_{subset}(\theta_{subset})$. If there is a significant different, then IIA is violated.
 \end{itemize}
 It is very (very) rare that IIA is not violated.
+\end{frame}
+
+\begin{frame}\frametitle{Hausman and McFadden Test}
+
+\begin{equation}
+ HM = (\hat{\beta}^r - \hat{\beta}^f)^{'}
+[var_{\hat{\beta^r}} - var_{\hat{\beta^f}}]^{-1}
+ (\hat{\beta}^r - \hat{\beta}^f)
+\end{equation}
+
+We have that 
+
+\begin{equation}
+ HM \sim \chi^2(|| \beta^r ||)
+\end{equation}
+ If IIA holds. 
 \end{frame}
 
 
@@ -886,23 +903,243 @@ choices.
 \end{equation}
 where $f(x,y,z)$ is the pdf of the trivariate normal.
 \end{itemize}
-\item Need simulation to compute the choice probabilities and the likelihood. 
+Need simulation to compute the choice probabilities and the likelihood. 
 \end{frame}
 
 \begin{frame}\frametitle{Applications}
+\begin{itemize}
+ \item Conditional logit
+ \item Multinomial logit
+ \item Mixed logit
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Data: Car}
+Sample of 4654 individuals stating preferences for cars
+\begin{itemize}
+ \item choice: choice of a vehicule amoung 6 propositions,
+ \item college: college education?,
+\item hsg2: size of household greater than 2?
+\item coml5: commute lower than 5 miles a day?,
+\item type: body type, one of regcar (regular car), sportuv (sport utility vehicule), sportcar, stwagon
+\item (station wagon), truck, van, for each proposition z from 1 to 6,
+\item fuel: fuel for proposition z, one of gasoline, methanol, cng (compressed natural gas), electric.,
+\item price: price of vehicule divided by the logarithm of income,
+\item range: hundreds of miles vehicule can travel between refuelings/rechargings,
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Data}
+\begin{itemize}
+\item acc: acceleration, tens of seconds required to reach 30 mph from stop,
+\item speed: highest attainable speed in hundreds of mph,
+\item pollutionz: tailpipe emissions as fraction of those for new gas vehicule,
+\item size: 0 for a mini, 1 for a subcompact, 2 for a compact and 3 for a mid–size or large vehicule,
+\item space: fraction of luggage space in comparable new gas vehicule,
+\item cost: cost per mile of travel (tens of cents) : home recharging for electric vehicule, station
+refueling otherwise,
+\item station: fraction of stations that can refuel/recharge vehicule.
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{verbatim}
+ summary(car[,6:7])
+      type             fuel     
+ regcar  :10930   gasoline:6958  
+ sportuv : 1048   methanol:6952  
+ sportcar:  880   cng     :7016  
+ stwagon : 4446   electric:6998  
+ truck   : 5628                  
+ van     : 4992                  
+ \end{verbatim}
+
+ \begin{frame}\frametitle{Descriptive Statistics}
+\begin{table}[!htbp] \centering 
+\tiny
+\begin{tabular}{@{\extracolsep{5pt}}lccccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+Statistic  & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+college  & 0.429 & 0.514 & 0 & 0 & 1 & 1 \\ 
+hsg2  & 0.571 & 0.514 & 0 & 0 & 1 & 1 \\ 
+coml5  & 0.429 & 0.514 & 0 & 0 & 1 & 1 \\ 
+alt  & 3.214 & 1.805 & 1 & 2 & 4.8 & 6 \\ 
+price  & 4.212 & 0.620 & 3.311 & 3.700 & 4.717 & 5.139 \\ 
+range  & 275.000 & 79.663 & 125 & 250 & 300 & 400 \\ 
+acc  & 4.429 & 1.530 & 2 & 2.9 & 6 & 6 \\ 
+speed  & 115.000 & 23.534 & 85 & 95 & 140 & 140 \\ 
+pollution  & 0.300 & 0.206 & 0.000 & 0.138 & 0.475 & 0.600 \\ 
+size & 2.571 & 0.514 & 2 & 2 & 3 & 3 \\ 
+space  & 0.914 & 0.141 & 0.700 & 0.775 & 1.000 & 1.000 \\ 
+cost  & 5.714 & 1.729 & 4 & 4 & 7.5 & 8 \\ 
+station & 0.371 & 0.421 & 0.000 & 0.100 & 0.825 & 1.000 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table} 
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{verbnobox}[\small]
+Call:
+mlogit(formula = choice ~ type + fuel + price + cost + range + acc + speed + pollution + size + space + station, data = car)
+
+nr method
+5 iterations, 0h:0m:0s 
+successive function values within tolerance limits 
+
+Frequencies of alternatives:
+       1        2        3        4        5        6 
+0.190589 0.057800 0.288999 0.074989 0.322089 0.065535 
+
+Coefficients :
+                 Estimate  Std. Error  z-value  Pr(>|z|)    
+2:(intercept) -1.02584508  0.07485823 -13.7038 < 2.2e-16 ***
+3:(intercept) -0.58744862  0.09669769  -6.0751 1.239e-09 ***
+4:(intercept) -1.81381447  0.11755525 -15.4295 < 2.2e-16 ***
+5:(intercept) -1.05078849  0.16094721  -6.5288 6.631e-11 ***
+6:(intercept) -2.46225161  0.17963119 -13.7073 < 2.2e-16 ***
+typesportuv   -0.00184380  0.15440518  -0.0119 0.9904724    
+typesportcar  -0.10424485  0.16602048  -0.6279 0.5300671    
+typestwagon   -0.35046787  0.08468066  -4.1387 3.493e-05 ***
+typetruck     -0.50135883  0.06291611  -7.9687 1.554e-15 ***
+typevan       -0.00736043  0.06849182  -0.1075 0.9144206    
+fuelmethanol  -1.01838444  0.23027436  -4.4225 9.757e-06 ***
+fuelcng       -0.45483805  0.15971779  -2.8478 0.0044028 ** 
+fuelelectric   0.08849715  0.10936308   0.8092 0.4183973    
+price         -0.18534361  0.02715810  -6.8246 8.816e-12 ***
+cost          -0.07563471  0.00753756 -10.0344 < 2.2e-16 ***
+range          0.00349386  0.00026686  13.0927 < 2.2e-16 ***
+acc           -0.07628449  0.01108619  -6.8810 5.942e-12 ***
+speed          0.00258834  0.00080496   3.2155 0.0013022 ** 
+pollution     -0.39984011  0.10192220  -3.9230 8.746e-05 ***
+size           0.09364624  0.03020371   3.1005 0.0019320 ** 
+space          0.50476619  0.18962883   2.6619 0.0077709 ** 
+station        0.37123341  0.09691643   3.8304 0.0001279 ***
+\end{verbnobox}
+
+\begin{frame}\frametitle{Interpretation}
+\begin{itemize}
+ \item Point estimates
+ \item Non invariant characteristics
+\end{itemize}
 \end{frame}
+
+
+\begin{verbnobox}[\footnotesize]
+Call:
+mlogit(formula = choice ~ 0 | college + hsg2 + coml5, data = car, 
+    method = "nr")
+
+Frequencies of alternatives:
+       1        2        3        4        5        6 
+0.190589 0.057800 0.288999 0.074989 0.322089 0.065535 
+
+nr method
+5 iterations, 0h:0m:2s 
+g'(-H)^-1g = 2.73E-05 
+successive function values within tolerance limits 
+
+Coefficients :
+                Estimate Std. Error z-value  Pr(>|z|)    
+2:(intercept) -1.1068260  0.1649744 -6.7091 1.959e-11 ***
+3:(intercept)  0.4767147  0.1053347  4.5257 6.019e-06 ***
+4:(intercept) -0.9202688  0.1506538 -6.1085 1.006e-09 ***
+5:(intercept)  0.6224069  0.1016934  6.1204 9.333e-10 ***
+6:(intercept) -0.9056751  0.1510444 -5.9961 2.021e-09 ***
+2:college     -0.1277798  0.1661574 -0.7690 0.4418763    
+3:college     -0.0021799  0.1061731 -0.0205 0.9836190    
+4:college     -0.1369894  0.1504088 -0.9108 0.3624110    
+5:college     -0.1606726  0.1021570 -1.5728 0.1157649    
+6:college     -0.3907579  0.1510830 -2.5864 0.0096990 ** 
+2:hsg2         0.4574850  0.1576870  2.9012 0.0037171 ** 
+3:hsg2        -0.0938253  0.1081866 -0.8673 0.3858027    
+4:hsg2         0.5734656  0.1420381  4.0374 5.405e-05 ***
+5:hsg2        -0.0435102  0.1053016 -0.4132 0.6794633    
+6:hsg2         0.5176522  0.1495711  3.4609 0.0005384 ***
+2:coml5       -0.3107952  0.1517088 -2.0486 0.0404983 *  
+3:coml5       -0.1135059  0.0908377 -1.2495 0.2114658    
+4:coml5       -0.1651417  0.1348236 -1.2249 0.2206233    
+5:coml5        0.0933282  0.0879897  1.0607 0.2888389    
+6:coml5       -0.0084332  0.1389205 -0.0607 0.9515941    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Log-Likelihood: -7302.8
+McFadden R^2:  0.0051045 
+Likelihood ratio test : chisq = 74.937 (p.value = 5.8115e-10)
+\end{verbnobox}
+
+\begin{frame}\frametitle{Interpretation}
+\begin{itemize}
+ \item Point estimates
+ \item Choice specific characteristics
+\end{itemize}
+\end{frame}
+
+%\begin{verbnobox}[\footnotesize]
+%\end{verbnobox}
+
+\begin{verbnobox}[\footnotesize]
+mlogit(formula = choice ~ type + fuel + price + cost + range + 
+    acc + speed + pollution + size + space + station | college + 
+    hsg2 + coml5, data = car, method = "nr")
+
+Frequencies of alternatives:
+       1        2        3        4        5        6 
+0.190589 0.057800 0.288999 0.074989 0.322089 0.065535 
+
+nr method
+5 iterations, 0h:0m:1s 
+g'(-H)^-1g = 0.000103 
+successive function values within tolerance limits 
+
+Coefficients :
+                 Estimate  Std. Error  z-value  Pr(>|z|)    
+2:(intercept) -0.98077920  0.16757969  -5.8526 4.839e-09 ***
+3:(intercept) -0.48318237  0.13537617  -3.5692 0.0003581 ***
+4:(intercept) -1.87579829  0.18201952 -10.3055 < 2.2e-16 ***
+5:(intercept) -0.87144551  0.18284488  -4.7660 1.879e-06 ***
+6:(intercept) -2.26014988  0.22614108  -9.9944 < 2.2e-16 ***
+typesportuv   -0.02644362  0.15553104  -0.1700 0.8649932    
+typesportcar  -0.21869888  0.16998782  -1.2866 0.1982490    
+typestwagon   -0.31080773  0.08612210  -3.6089 0.0003075 ***
+typetruck     -0.46422781  0.06363490  -7.2952 2.982e-13 ***
+typevan        0.07832756  0.06987908   1.1209 0.2623299    
+fuelmethanol  -1.10814756  0.23441570  -4.7273 2.276e-06 ***
+fuelcng       -0.45210218  0.15988272  -2.8277 0.0046882 ** 
+fuelelectric   0.08451873  0.10953658   0.7716 0.4403497    
+price         -0.18587114  0.02719289  -6.8353 8.184e-12 ***
+cost          -0.07604764  0.00755105 -10.0711 < 2.2e-16 ***
+range          0.00350101  0.00026714  13.1055 < 2.2e-16 ***
+acc           -0.07754747  0.01111274  -6.9783 2.989e-12 ***
+speed          0.00261034  0.00080596   3.2388 0.0012004 ** 
+pollution     -0.39126834  0.10210589  -3.8320 0.0001271 ***
+size           0.09080954  0.03025242   3.0017 0.0026845 ** 
+space          0.51129078  0.18986689   2.6929 0.0070835 ** 
+station        0.36589016  0.09697511   3.7730 0.0001613 ***
+2:college     -0.10370552  0.16680297  -0.6217 0.5341229    
+3:college     -0.06342769  0.10906417  -0.5816 0.5608610    
+4:college     -0.15736818  0.15267548  -1.0307 0.3026644    
+5:college     -0.21903997  0.10436039  -2.0989 0.0358275 *  
+6:college     -0.43115417  0.15332731  -2.8120 0.0049237 ** 
+2:hsg2         0.45401801  0.15924012   2.8512 0.0043561 ** 
+3:hsg2        -0.09901138  0.11102963  -0.8918 0.3725235    
+4:hsg2         0.60397279  0.14515336   4.1609 3.170e-05 ***
+5:hsg2        -0.04098946  0.10752259  -0.3812 0.7030421    
+6:hsg2         0.53109183  0.15238191   3.4853 0.0004916 ***
+2:coml5       -0.32561470  0.15310405  -2.1268 0.0334405 *  
+3:coml5       -0.28582517  0.10244637  -2.7900 0.0052708 ** 
+4:coml5       -0.23774818  0.14386647  -1.6526 0.0984202 .  
+5:coml5       -0.19545405  0.09787761  -1.9969 0.0458336 *  
+6:coml5       -0.31954968  0.14602695  -2.1883 0.0286483 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Log-Likelihood: -6968.3
+McFadden R^2:  0.050679 
+Likelihood ratio test : chisq = 744 (p.value = < 2.22e-16)
+\end{verbnobox}
+
 
 
 \end{document}
