@@ -1,3 +1,5 @@
-\babel@toc {english}{}
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
 \beamer@sectionintoc {1}{Binary Response Model}{2}{0}{1}
 \beamer@sectionintoc {2}{Multinomial Choices}{39}{0}{2}
+\beamer@sectionintoc {3}{Count Response}{72}{0}{3}

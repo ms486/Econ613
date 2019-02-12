@@ -1,7 +1,7 @@
 #=====================
-library(bayesm)
 library(mlogit)
 library(stargazer)
+library(texreg)
 #=====================
 
 data("Car", package = "mlogit")
@@ -21,29 +21,96 @@ summary(car[,6:7])
 
 stargazer(car[,c(2:5,8:ncol(car)-1)])
 
-model01 <- mlogit(choice ~ type + fuel + acc, data = car)
-model02 <- mlogit(choice ~ type + fuel + acc   + price + cost, data = car)
-model03 <- mlogit(choice ~ type + fuel + price + cost + range + acc, data = car)
-model04 <- mlogit(choice ~ type + fuel + price + cost + range + acc + speed + pollution, data = car)
-model05 <- mlogit(choice ~ type + fuel + price + cost + range + acc + speed + pollution + size + space + station, data = car)
+
+#============================================================================================
+# start with something simple to think about the interpretation of variables
+#============================================================================================
+model01 <- mlogit(choice ~ type + price + cost, data = car)
 
 setwd("/Users/ms486/Dropbox/Teaching/2019/AppliedEconometrics/DiscreteChoice")
 
-sink("clogit.tex")
-summary(model05)
+sink("condlogit.tex")
+texreg(model01)
 sink()
 
+#============================================================================================
+# specification search and interpretation of interactions
+#============================================================================================
+
+model021 <- mlogit(choice ~ fuel + range + price, data = car)
+model022 <- mlogit(choice ~ fuel + range + price + cost, data = car)
+model023 <- mlogit(choice ~ fuel + range + I(price*cost), data = car)
+model024 <- mlogit(choice ~ fuel + range + price + I(price*cost), data = car)
+model025 <- mlogit(choice ~ fuel + range + cost + I(price*cost), data = car)
+model026 <- mlogit(choice ~ fuel + range + price + cost + I(price*cost), data = car)
+
+sink("condlogit2.tex")
+texreg(list(model021,model022,model023,model024,model025,model026))
+sink()
+
+#============================================================================================
+# specification search and the effect of size
+#============================================================================================
+
+model031 <- mlogit(choice ~ type + size, data = car)
+model032 <- mlogit(choice ~ type + size + I(size^2) , data = car)
+model033 <- mlogit(choice ~ type + as.factor(size), data = car)
+model034 <- mlogit(choice ~ type + size*price, data = car)
+
+sink("condlogit3.tex")
+texreg(list(model031,model032,model033,model034))
+sink()
+
+#============================================================================================
+# specification search and interpretation of interactions with observed attributes
+#============================================================================================
+
+model041 <- mlogit(choice ~ fuel + price + cost +  range, data = car)
+model042 <- mlogit(choice ~ fuel + price + cost +  range + I(range*coml5) , data = car)
+model043 <- mlogit(choice ~ fuel + price + cost +  range + I(cost*coml5) , data = car)
+model044 <- mlogit(choice ~ fuel + price + cost +  range + I(cost*coml5) + I(range*coml5) , data = car)
+summary(model042)
+
+sink("condlogit4.tex")
+texreg(list(model041,model042,model043,model044))
+sink()
+
+#============================================================================================
+# specification search and interpretation of interactions with observed attributes
+#============================================================================================
+
+model051 <- mlogit(choice ~ type + price + cost + I(price*college) , data = car)
+model052 <- mlogit(choice ~ type + price + cost + I(price*college) , data = car)
+model053 <- mlogit(choice ~ type + price + cost + I(price*college) + I(cost*college) , data = car)
+
+sink("condlogit5.tex")
+texreg(list(model051,model052,model053))
+sink()
+
+
+#============================================================================================
 ## a pure "multinomial model"
+#============================================================================================
 
 model11 <- mlogit(choice ~ 0 | college, data = car)
-model12 <- mlogit(choice ~ 0 | college + hsg2, data = car)
-model13 <- mlogit(choice ~ 0 | college + hsg2 + coml5, data = car)
+model12 <- mlogit(choice ~ 0 | college + I(college*cost), data = car)
 
 setwd("/Users/ms486/Dropbox/Teaching/2019/AppliedEconometrics/DiscreteChoice")
 
-sink("mlogit.tex")
-summary(model13)
+sink("multlogit.tex")
+texreg(list(model11,model12))
 sink()
+
+
+model21 <- mlogit(choice ~ 0 | coml5, data = car)
+model22 <- mlogit(choice ~ 0 | coml5 + I(coml5*size), data = car)
+
+sink("multlogit1.tex")
+texreg(list(model21,model22))
+sink()
+
+
+
 
 ## mixed logit 
 modelf <- mlogit(choice ~ type + fuel + price + cost + range + acc + speed + pollution + size + space + station | college + hsg2 + coml5, data = car)
