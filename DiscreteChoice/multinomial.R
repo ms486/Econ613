@@ -27,7 +27,7 @@ stargazer(car[,c(2:5,8:ncol(car)-1)])
 #============================================================================================
 model01 <- mlogit(choice ~ type + price + cost, data = car)
 
-setwd("/Users/ms486/Dropbox/Teaching/2019/AppliedEconometrics/DiscreteChoice")
+setwd("/Users/ms486/Dropbox/Teaching/2019/AppliedEconometrics/Econ613/DiscreteChoice")
 
 sink("condlogit.tex")
 texreg(model01)
@@ -59,6 +59,36 @@ model034 <- mlogit(choice ~ type + size*price, data = car)
 
 sink("condlogit3.tex")
 texreg(list(model031,model032,model033,model034))
+sink()
+
+
+#============================================================================================
+# specification search and the effect of size
+#============================================================================================
+
+model081 <- mlogit(choice ~ price+cost+size, data = car)
+model082 <- mlogit(choice ~ price+cost+size + I(size^2) , data = car)
+model083 <- mlogit(choice ~ price+cost+as.factor(size), data = car)
+
+sink("condlogit8.tex")
+texreg(list(model081,model082,model083))
+sink()
+
+#============================================================================================
+# Trying to kill off this effect
+#============================================================================================
+
+car$size1 = car$size + 1
+car$size2 = car$size -10
+
+model071 <- mlogit(choice ~ price+cost+size, data = car)
+model072 <- mlogit(choice ~ price+cost+(size1), data = car)
+model073 <- mlogit(choice ~ price+cost+(size2), data = car)
+model074 <- mlogit(choice ~ price+cost+log(size1), data = car)
+model075 <- mlogit(choice ~ price+cost+as.numeric(size>2), data = car)
+
+sink("condlogit7.tex")
+texreg(list(model071,model072,model073,model074,model075))
 sink()
 
 #============================================================================================
@@ -110,14 +140,15 @@ texreg(list(model21,model22))
 sink()
 
 
-
-
 ## mixed logit 
-modelf <- mlogit(choice ~ type + fuel + price + cost + range + acc + speed + pollution + size + space + station | college + hsg2 + coml5, data = car)
+modelf1 = mlogit(choice ~ price + cost + range + acc,data = car)
+modelf2 = mlogit(choice ~ price + cost + range + acc|  hsg2, data = car)
+modelf3 = mlogit(choice ~ price + cost + range + acc + speed + pollution | hsg2 + coml5, data = car)
+modelf4 = mlogit(choice ~ price + cost + range + acc + speed + pollution | college + hsg2 + coml5, data = car)
 
 setwd("/Users/ms486/Dropbox/Teaching/2019/AppliedEconometrics/DiscreteChoice")
 
 sink("mixedlogit.tex")
-summary(modelf)
+texreg(list(modelf1,modelf2,modelf3,modelf4))
 sink()
 

@@ -1,9 +1,8 @@
-\beamer@endinputifotherversion {3.36pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
-\headcommand {\sectionentry {1}{Binary Response Model}{2}{Binary Response Model}{0}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\sectionentry {1}{Binary Response Model}{2}{Binary Response Model}{0}}
 \headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
 \headcommand {\slideentry {1}{0}{2}{3/3}{}{0}}
@@ -74,9 +73,9 @@
 \headcommand {\beamer@framepages {35}{35}}
 \headcommand {\slideentry {1}{0}{35}{37/37}{}{0}}
 \headcommand {\beamer@framepages {37}{37}}
-\headcommand {\sectionentry {2}{Multinomial Choices}{39}{Multinomial Choices}{0}}
 \headcommand {\beamer@sectionpages {2}{38}}
 \headcommand {\beamer@subsectionpages {2}{38}}
+\headcommand {\sectionentry {2}{Multinomial Choices}{39}{Multinomial Choices}{0}}
 \headcommand {\slideentry {2}{0}{1}{39/39}{}{0}}
 \headcommand {\beamer@framepages {39}{39}}
 \headcommand {\slideentry {2}{0}{2}{40/40}{}{0}}
@@ -141,13 +140,19 @@
 \headcommand {\beamer@framepages {70}{70}}
 \headcommand {\slideentry {2}{0}{32}{71/71}{}{0}}
 \headcommand {\beamer@framepages {71}{71}}
-\headcommand {\sectionentry {3}{Count Response}{72}{Count Response}{0}}
-\headcommand {\beamer@sectionpages {39}{71}}
-\headcommand {\beamer@subsectionpages {39}{71}}
-\headcommand {\slideentry {3}{0}{1}{72/72}{}{0}}
+\headcommand {\slideentry {2}{0}{33}{72/72}{}{0}}
 \headcommand {\beamer@framepages {72}{72}}
-\headcommand {\beamer@partpages {1}{72}}
-\headcommand {\beamer@subsectionpages {72}{72}}
-\headcommand {\beamer@sectionpages {72}{72}}
-\headcommand {\beamer@documentpages {72}}
-\headcommand {\def \inserttotalframenumber {69}}
+\headcommand {\slideentry {2}{0}{34}{73/73}{}{0}}
+\headcommand {\beamer@framepages {73}{73}}
+\headcommand {\slideentry {2}{0}{35}{74/74}{}{0}}
+\headcommand {\beamer@framepages {74}{74}}
+\headcommand {\beamer@sectionpages {39}{74}}
+\headcommand {\beamer@subsectionpages {39}{74}}
+\headcommand {\sectionentry {3}{Count Response}{75}{Count Response}{0}}
+\headcommand {\slideentry {3}{0}{1}{75/75}{}{0}}
+\headcommand {\beamer@framepages {75}{75}}
+\headcommand {\beamer@partpages {1}{75}}
+\headcommand {\beamer@subsectionpages {75}{75}}
+\headcommand {\beamer@sectionpages {75}{75}}
+\headcommand {\beamer@documentpages {75}}
+\headcommand {\gdef \inserttotalframenumber {72}}
