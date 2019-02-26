@@ -467,7 +467,7 @@ Cross-section data originating from the health survey SOMIPOPS for Switzerland i
 
 \begin{frame}\frametitle{Describing the data (1)}
 \begin{figure}
-\includegraphics[width = 8cm]{char}
+\includegraphics[width = 8cm]{plot/char}
 \end{figure}
 \end{frame}
 
@@ -496,15 +496,15 @@ Cross-section data originating from the health survey SOMIPOPS for Switzerland i
 
 
 \begin{frame}\frametitle{Effect of income}
-\input{probit_inc.tex}
+\input{Tables/probit_inc.tex}
 \end{frame}
 
 \begin{frame}\frametitle{Effect of age}
-\input{probit_age.tex}
+\input{Tables/probit_age.tex}
 \end{frame}
 
 \begin{frame}\frametitle{Specification}
-\input{probit_spec.tex}
+\input{Tables/probit_spec.tex}
 \end{frame}
 
 \begin{frame}\frametitle{Marginal Effects}
@@ -558,12 +558,12 @@ Data & 0 & 1 \\
 
 \begin{frame}\frametitle{ROC}
 \begin{figure}
-\includegraphics[width = 8cm]{roc}
+\includegraphics[width = 8cm]{Plot/roc}
 \end{figure}
 \end{frame}
 
 \begin{frame}\frametitle{By citizenship}
-\input{probit_foreign.tex}
+\input{Tables/probit_foreign.tex}
 \end{frame}
 
 \begin{frame}\frametitle{Murder Rates}
@@ -814,7 +814,7 @@ We have that
 
 \begin{frame}\frametitle{Nested Logit}
 \begin{figure}
-\includegraphics[width = 10cm]{choice}
+\includegraphics[width = 10cm]{Plot/choice}
 \end{figure}
 \end{frame}
 
@@ -979,31 +979,31 @@ station & 0.371 & 0.421 & 0.000 & 0.100 & 0.825 & 1.000 \\
 \end{frame}
 
 \begin{frame}{Conditional Logit}
-\input{condlogit.tex}
+\input{Tables/condlogit.tex}
 \end{frame}
 
 \begin{frame}{Conditional Logit: Interactions}
-\input{condlogit2.tex}
+\input{Tables/condlogit2.tex}
 \end{frame}
 
 \begin{frame}{Conditional Logit: Effect of size}
-\input{condlogit3.tex}
+\input{Tables/condlogit3.tex}
 \end{frame}
 
 \begin{frame}{Conditional Logit: Effect of size (2)}
-\input{condlogit8.tex}
+\input{Tables/condlogit8.tex}
 \end{frame}
 
 \begin{frame}{Conditional Logit: Effect of size (3)}
-\input{condlogit7.tex}
+\input{Tables/condlogit7.tex}
 \end{frame}
 
 \begin{frame}{Conditional Logit: Distance and car type}
-\input{condlogit4.tex}
+\input{Tables/condlogit4.tex}
 \end{frame}
 
 \begin{frame}{Conditional Logit: Price and College}
-\input{condlogit5.tex}
+\input{Tables/condlogit5.tex}
 \end{frame}
 
 
@@ -1015,19 +1015,185 @@ station & 0.371 & 0.421 & 0.000 & 0.100 & 0.825 & 1.000 \\
 \end{frame}
 
 \begin{frame}{Multinomial Logit}
-\input{multlogit.tex}
+\input{Tables/multlogit.tex}
 \end{frame}
 
 \begin{frame}{Multinomial Logit}
-\input{multlogit1.tex}
+\input{Tables/multlogit1.tex}
 \end{frame}
 
 \begin{frame}{Mixed Logit}
-\input{mixedlogit.tex}
+\input{Tables/mixedlogit.tex}
 \end{frame}
 
 
-\section{Count Response}
+\section{Count Data}
+
+\begin{frame}
+\tableofcontents[currentsection] 
+\end{frame}
+
+\begin{frame}\frametitle{Introduction}
+Suppose $y$ takes integers 0,1,2,\ldots, which are cardinal not just ordinal. Then y is a count response. 
+\begin{itemize}
+\item Number of accidents
+\item Number of live births
+\item Doctor visits
+\item Prescription drugs
+\item Recreational trips
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Examples}
+\begin{itemize}
+\item Number of children over a specified age interval of the mother, depending on mother's schooling, age, household income 
+\item Visits to a museum to characterize the impact of specific attractions (animals, science room)
+\item Airline safety (number of accidents) to airline profitability
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Motivation}
+\begin{itemize}
+\item Linear regression on count data
+\item Discrete choice methods (ordered, multinomial)
+\end{itemize}
+\begin{figure}
+\includegraphics[width = 25cm]{plot/zero}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Poisson Models}
+\begin{itemize}
+\item The natural choice is a Poisson Model
+\begin{equation*}
+Pr(Y) = \dfrac{\exp(-\mu) \mu^{y}}{y!}
+\end{equation*}
+where $\mu$ is the mean and the variance of $Y$.
+\item In Poisson MLE, we assume that $y\mid x$ follows a poisson distribution with parameter $\lambda(x)>0$, and we have
+\begin{equation*}
+P(y=r \mid x) = \dfrac{\lambda(x)^r}{r !} \exp(-\lambda(x))
+\end{equation*}
+\item We specify 
+\begin{equation}
+\lambda(x) = \exp(x'_i \beta) 
+\end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Likelihood}
+\begin{itemize}
+\item The likelihood is given by 
+\begin{equation}
+\log \Lik(\beta) = \sum_i y_i x'_i \beta - \exp(x'_i \beta) - \log y_i !
+\end{equation}
+\item FOC
+\begin{equation}
+\dfrac{\partial \Lik(\beta)}{\partial \beta} = \sum_i \lbrace y_i - \exp(x_i'\beta) \rbrace x_i
+\end{equation}
+\item SOC 
+\begin{equation}
+\dfrac{\partial^2 \Lik(\beta)}{\partial \beta \partial \beta'} = \sum_i [- \exp(x_i'\beta)]  x_i x'_i
+\end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Marginal Effects}
+\begin{itemize}
+\item Standard solution
+\begin{equation}
+\dfrac{\partial E(y \mid x)}{\partial x} = \beta \exp(x\beta) 
+\end{equation}
+\item Better marginal effect: Proportional change in $E(y \mid x)$ as x changes by one unit.
+\begin{equation}
+\dfrac{\partial E(y \mid x)/\partial x}{E(y \mid x)} = \beta 
+\end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Over-dispersion problem}
+\begin{itemize}
+\item The Poisson Model implies that $E(y \mid x) = Var(y \mid x)$. 
+\item Too restrictive, and leads to a problem of excess zeroes. 
+\item Explanations
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Negative Binomial Model}
+\begin{itemize}
+\item The negative binomial distribution is a mixture between the Poisson and Gamma distributions. 
+\item Parametrization $\lambda_i \equiv \exp(x_i' \beta)$ and $\psi_i \equiv \tfrac{1}{\alpha} \lambda_i^{\kappa}$ where $\beta$, $\alpha > 0$ and $\kappa$ are parameters. 
+\item Choice probabilities are given by
+\begin{equation}
+P(y_i \mid x_i) = \dfrac{\Gamma(y_i + \psi_i)}{\Gamma(\psi_i)\Gamma(y_i+1)} \left( \dfrac{\psi_i}{\lambda_i + \psi_i} \right)^{\psi_i} \left( \dfrac{\psi_i}{\lambda_i + \psi_i} \right)^{y_i}
+\end{equation}
+\item The moments are given
+\begin{eqnarray*}
+E(y \mid x_i) &=& \lambda_i\\
+Var(y \mid x_i) &=& \lambda_i + \alpha \lambda_i^{2-\kappa}
+\end{eqnarray*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Zero Inflated Model}
+\begin{itemize}
+\item Imagine, two densities $f_1(\cdot)$ and $f_2(\cdot)$. 
+\begin{equation}
+g(y) = \begin{cases} f_1(0) + (1-f_1(0)) f_2(0), & \mbox{if } y = 0 \\ 
+(1-f_1(0)) f_2(y), & \mbox{if } y \geq 1 \end{cases}
+\end{equation}
+\item The likelihood can be derived, and the model is able to cope with many zeros. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Application: Crime and Inequality}
+\begin{itemize}
+\item Among industrialized economies, the United States
+enjoys two unenviable distinctions: high inequality and
+high rates of crime, particularly of violent crime. 
+\item Individuals allocate time between market and criminal activity by comparing the expected return
+ from each, and taking account of the likelihood and severity of punishment. In these models, inequality leads to crime by placing low-income individuals who have low returns from market activity in proximity to high-income individuals who have things that are worth ``taking".
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Data}
+\begin{itemize}
+\item Data are taken from the 1991 FBI Uniform Crime Reports, which comprise violent crimes and property crimes. Violent crime consists of murder and non-negligent homicide, forcible rape, robbery, and aggravated assault.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Results}
+\begin{figure}
+\includegraphics[width = 10cm]{Tables/tabcrime}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Affairs Data}
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+ & Numbers \\ 
+  \hline
+0 & 451 \\ 
+  1 &  34 \\ 
+  2 &  17 \\ 
+  3 &  19 \\ 
+  7 &  42 \\ 
+  12 &  38 \\ 
+   \hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Estimation}
+\input{Tables/Count.tex}
+\end{frame}
+
+\section{Tobit and Selection Models}
+
+\begin{frame}
+\tableofcontents[currentsection] 
+\end{frame}
 
 
 \begin{frame}{Issues Days}
@@ -1037,7 +1203,7 @@ station & 0.371 & 0.421 & 0.000 & 0.100 & 0.825 & 1.000 \\
 \begin{itemize}
 \item Introduction 
 \item Paper 1 - What
-\item Paper 1 - Findings
+\item Paper 1 - Findings 
 \item Paper 2 - What 
 \item Paper 2 - Findings
 \item Paper 3 - What

@@ -1,4 +1,5 @@
 \babel@toc {english}{}
 \beamer@sectionintoc {1}{Binary Response Model}{2}{0}{1}
 \beamer@sectionintoc {2}{Multinomial Choices}{39}{0}{2}
-\beamer@sectionintoc {3}{Count Response}{75}{0}{3}
+\beamer@sectionintoc {3}{Count Data}{75}{0}{3}
+\beamer@sectionintoc {4}{Tobit and Selection Models}{90}{0}{4}
