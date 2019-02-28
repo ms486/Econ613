@@ -1,5 +1,9 @@
 \babel@toc {english}{}
 \beamer@sectionintoc {1}{Binary Response Model}{2}{0}{1}
-\beamer@sectionintoc {2}{Multinomial Choices}{39}{0}{2}
-\beamer@sectionintoc {3}{Count Data}{75}{0}{3}
-\beamer@sectionintoc {4}{Tobit and Selection Models}{90}{0}{4}
+\beamer@subsectionintoc {1}{1}{Applications}{15}{0}{1}
+\beamer@sectionintoc {2}{Multinomial Choices}{40}{0}{2}
+\beamer@subsectionintoc {2}{1}{Applications}{60}{0}{2}
+\beamer@sectionintoc {3}{Count Data}{77}{0}{3}
+\beamer@subsectionintoc {3}{1}{Applications}{87}{0}{3}
+\beamer@sectionintoc {4}{Tobit and Selection Models}{93}{0}{4}
+\beamer@subsectionintoc {4}{1}{Applications}{123}{0}{4}

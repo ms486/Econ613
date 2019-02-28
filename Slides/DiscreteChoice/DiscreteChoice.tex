@@ -210,6 +210,12 @@ R^2_{\text{Binary}} =  1-  \dfrac{\Lik(\hat{\beta)}}{N[\bar{y} ln \bar{y} + (1-\
 \end{itemize}
 \end{frame}
 
+\subsection{Applications}
+
+\begin{frame}
+        \tableofcontents[currentsection,hideothersubsections,currentsubsection]
+\end{frame}
+
 \begin{frame}\frametitle{Example: Describing the data}
 {\tiny
 \begin{table}[ht]
@@ -905,6 +911,12 @@ where $f(x,y,z)$ is the pdf of the trivariate normal.
 Need simulation to compute the choice probabilities and the likelihood. 
 \end{frame}
 
+\subsection{Applications}
+
+\begin{frame}
+        \tableofcontents[currentsection,hideothersubsections,currentsubsection]
+\end{frame}
+
 \begin{frame}\frametitle{Applications}
 \begin{itemize}
  \item Conditional logit
@@ -1145,6 +1157,12 @@ g(y) = \begin{cases} f_1(0) + (1-f_1(0)) f_2(0), & \mbox{if } y = 0 \\
 \end{itemize}
 \end{frame}
 
+\subsection{Applications}
+
+\begin{frame}
+        \tableofcontents[currentsection,hideothersubsections,currentsubsection]
+\end{frame}
+
 \begin{frame}\frametitle{Application: Crime and Inequality}
 \begin{itemize}
 \item Among industrialized economies, the United States
@@ -1195,6 +1213,316 @@ high rates of crime, particularly of violent crime.
 \tableofcontents[currentsection] 
 \end{frame}
 
+\begin{frame}\frametitle{Introduction}
+\begin{itemize}
+\item Censoring: Data on $y$ is censored if for part of the range of  we observe only that $y$ is in that range, rather than observing the exact value of $y$. e.g. income is top-coded at \$75,000 per year.
+\item Truncation: Data on $y$ is truncated if for part of the range of $y$, we do not observe $y$ at all.
+e.g. people with income above \$75,000 per year are
+excluded from the sample.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Introduction}
+\begin{itemize}
+ \item Validity: Meaningful policy analysis requires extrapolation from
+the restricted sample to the population as a whole.
+\item regressions on censored or truncated data,
+without controlling for censoring or truncation, leads to inconsistent parameter estimates.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Examples}
+\begin{itemize}
+ \item A research project is studying the level of lead in home drinking water as a function of the age of a house and family income. The water testing kit cannot detect lead concentrations below 5 parts per billion (ppb). The EPA considers levels above 15 ppb to be dangerous. 
+ \item Consider the situation in which we have a measure of academic aptitude (scaled 200-800) which we want to model using reading and math test scores, as well as, the type of program the student is enrolled in (academic, general, or vocational). The problem here is that students who answer all questions on the academic aptitude test correctly receive a score of 800, even though it is likely that these students are not truly equal in aptitude. The same is true of students who answer all of the questions incorrectly. All such students would have a score of 200, although they may not all be of equal aptitude.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Example}
+ \begin{itemize}
+  \item Marketing program for Hair Volume
+  \item Survey data
+  \item Problems
+ \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Introduction}
+\begin{itemize}
+ \item Focus on the normal distribution
+ \item Limited dependent models
+\end{itemize}
+\end{frame}
+
+% \begin{frame}\frametitle{Why the normal distribution?}
+% \begin{itemize}
+%  \item Consider $x \sim \N$ and is truncated from below at c. Then
+% \begin{equation}
+%  E(x \mid x>c) = \dfrac{\phi(c)}{1-\Phi(c)}
+% \end{equation} where $\dfrac{\phi(c)}{1-\Phi(c)}$ is referred to as the inverse mill's ratio. 
+%  \end{itemize}
+% \end{frame}
+
+\begin{frame}\frametitle{Tobit Model}
+\begin{itemize}
+ \item Consider a latent variable $y^{\star}$ given by
+ \begin{equation}
+  y^{\star} = x\beta + \epsilon
+ \end{equation}
+\item $y^{\star}$ is observed only partially.
+\item Censoring 
+\begin{equation}
+y = \begin{cases} y^{\star}, & \mbox{if } y^{\star} > 0 \\ 0, & \mbox{if } y^{\star} \leq 0 \end{cases}
+\end{equation}
+\item Truncation
+\begin{equation}
+ y= y^{\star} \mbox{ if } y^{\star}>0
+\end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Assumptions}
+\begin{itemize}
+ \item The standard estimators require stochastic assumptions about the distribution of $y$ and $\epsilon$. 
+ \item Normality:
+ \begin{equation}
+  \epsilon \sim N(0,\sigma^2) \rightarrow y^{\star} \sim N(x\beta,\sigma^2)
+ \end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Simulations}
+Consider 
+\begin{eqnarray}
+y^{\star} &=& -2500 + 1000 lnw + \epsilon\\
+\epsilon &\sim& \N(0,10^2)\\
+lnw &\sim& \N(2.75,0.60^2)
+\end{eqnarray}
+\end{frame}
+
+\begin{frame}\frametitle{Results (1)}
+\begin{table}
+\tiny
+\begin{center}
+\begin{tabular}{l c c c }
+\hline
+ & Uncensored & Censored & Truncated \\
+\hline
+(Intercept) & $-2507.46^{***}$ & $-1691.52^{***}$ & $-2321.20^{***}$ \\
+            & $(24.04)$        & $(29.64)$        & $(39.85)$        \\
+lw          & $1002.74^{***}$  & $727.60^{***}$   & $942.02^{***}$                 \\
+            & $(8.69)$         & $(10.71)$        & $(13.69)$                  \\
+\hline
+R$^2$       & 0.93             & 0.82             & 0.86             \\
+Adj. R$^2$  & 0.93             & 0.82             & 0.86             \\
+Num. obs.   & 1000             & 1000             & 744              \\
+RMSE        & 99.65            & 122.87           & 98.25            \\
+\hline
+\multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Setting 2}
+Consider 
+\begin{eqnarray}
+y^{\star} &=& -2500 + 1000 lnw + \epsilon\\
+\epsilon &\sim& \N(0,1)\\
+lnw &\sim& \N(2.75,0.60^2)
+\end{eqnarray}
+\end{frame}
+
+\begin{frame}\frametitle{Results (2)}
+\tiny
+\begin{table}
+\begin{center}
+\begin{tabular}{l c c c }
+\hline
+ & Uncensored & Censored & Truncated \\
+\hline
+(Intercept) & $-2500.63^{***}$ & $-1811.03^{***}$ & $-2500.58^{***}$ \\
+            & $(0.25)$         & $(21.33)$        & $(0.40)$         \\
+lw          & $1000.24^{***}$  & $768.07^{***}$   & $1000.23^{***}$                 \\
+            & $(0.09)$         & $(7.68)$         & $(0.14)$                 \\
+\hline
+R$^2$       & 1.00             & 0.91             & 1.00             \\
+Adj. R$^2$  & 1.00             & 0.91             & 1.00             \\
+Num. obs.   & 1000             & 1000             & 768              \\
+RMSE        & 1.01             & 86.63            & 1.01             \\
+\hline
+\multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{table:coefficients}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Setting 3}
+Consider 
+\begin{eqnarray}
+y^{\star} &=& 0.2 + 10 lnw + \epsilon\\
+\epsilon &\sim& \N(0,1)\\
+lnw &\sim& \N(2.75,0.60^2)
+\end{eqnarray}
+\end{frame}
+
+\begin{frame}\frametitle{Results(3)}
+\tiny
+\begin{table}
+\begin{center}
+\begin{tabular}{l c c c }
+\hline
+ & Uncensored & Censored & Truncated \\
+\hline
+(Intercept) & $0.36$       & $0.36$       & $0.36$       \\
+            & $(0.24)$     & $(0.24)$     & $(0.24)$     \\
+lw          & $9.95^{***}$ & $9.95^{***}$ & $9.95^{***}$             \\
+            & $(0.09)$     & $(0.09)$     & $(0.09)$             \\
+\hline
+R$^2$       & 0.93         & 0.93         & 0.93         \\
+Adj. R$^2$  & 0.93         & 0.93         & 0.93         \\
+Num. obs.   & 1000         & 1000         & 1000         \\
+RMSE        & 1.00         & 1.00         & 1.00         \\
+\hline
+\multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{table:coefficients}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Setting 4}
+\begin{eqnarray}
+y^{\star} &=& -25 + 10 lnw + \epsilon\\
+\epsilon &\sim& \N(0,10)\\
+lnw &\sim& \N(2.75,0.60^2)
+\end{eqnarray}
+\end{frame}
+
+\begin{frame}\frametitle{Results (4)}
+\begin{table}
+\begin{center}
+\begin{tabular}{l c c c }
+\hline
+ & Uncensored & Censored & Truncated \\
+\hline
+(Intercept) & $-31.32^{***}$ & $-14.74^{***}$ & $-6.67^{**}$ \\
+            & $(2.48)$       & $(1.69)$       & $(2.35)$     \\
+lw          & $12.45^{***}$  & $7.56^{***}$   & $5.88^{***}$             \\
+            & $(0.89)$       & $(0.61)$       & $(0.82)$              \\
+\hline
+R$^2$       & 0.16           & 0.13           & 0.08         \\
+Adj. R$^2$  & 0.16           & 0.13           & 0.08         \\
+Num. obs.   & 1000           & 1000           & 604          \\
+RMSE        & 10.06          & 6.84           & 6.74         \\
+\hline
+\multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{table:coefficients}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Describing the data (1)}
+\begin{figure}
+\includegraphics[width = 8cm]{plot/scatter1}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Describing the data (2)- Uncensored}
+\begin{figure}
+\includegraphics[width = 8cm]{plot/scatter2}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Describing the data (3) - Censored}
+\begin{figure}
+\includegraphics[width = 8cm]{plot/scatter3}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Findings}
+\begin{itemize}
+ \item Negative values have been increased to zero.
+ \item Increase the intercept and flattens the regression line
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Describing the data (4) - All}
+\begin{figure}
+\includegraphics[width = 8cm]{plot/scatter4}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Findings}
+\begin{itemize}
+ \item Observations with negative error draws dropped more than those with positive draws
+ \item The mean of the error is shifted up for low hours.
+ \item Increase the intercept and flattens the regression line
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Truncated case: Conditional Mean}
+\begin{itemize}
+ \item If the data is truncated, we observe $y$ only when $y>0$
+ \item We need to derive the truncated mean
+ \begin{eqnarray*}
+ E(y \mid y>0) &=& E(x\beta + \epsilon \mid x\beta + \epsilon >0 ) \\
+ &=& x\beta + E( \epsilon \mid  \epsilon > -x\beta ) \\
+ &=& x\beta + \sigma E( \tfrac{\epsilon}{\sigma} \mid  \tfrac{\epsilon}{\sigma} > -x\tfrac{\beta}{\sigma} ) \\
+  &=& x\beta + \sigma \dfrac{\phi(x\tfrac{\beta}{\sigma})}{\Phi(x\tfrac{\beta}{\sigma})}
+  \end{eqnarray*}
+\item $\dfrac{\phi(x\tfrac{\beta}{\sigma})}{\Phi(x\tfrac{\beta}{\sigma})}$ is the inverse Mills ratio.
+\item The regression function is nonlinear i.e OLS is inconsistent
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Censored Case: Conditional Mean}
+\begin{itemize}
+\item For censored data, $y=0$ if $y^{\star}<0$ and $y=y^{\star}$ otherwise
+\item The censored sample mean is 
+\begin{eqnarray*}
+E[y] &=& E_{y^{\star}}[E[y\mid y^{\star}]] \\
+     &=& Pr(y^{\star} <0) * 0 + Pr(y^{\star} >0) * E(y^{\star} \mid y^{\star}>0)\\
+     &=& \Phi(x\beta) \left\lbrace x\beta + \sigma \dfrac{\phi(x\tfrac{\beta}{\sigma})}{\Phi(x\tfrac{\beta}{\sigma})} \right\rbrace \\
+     &=& \Phi(x\beta) x\beta + \sigma \phi(x\tfrac{\beta}{\sigma}))
+\end{eqnarray*}
+\item Which is nonlinear as well.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+
+\begin{frame}
+\tableofcontents[currentsection] 
+\end{frame}
+
+
+\subsection{Applications}
+
+\begin{frame}
+        \tableofcontents[currentsection,hideothersubsections,currentsubsection]
+\end{frame}
 
 \begin{frame}{Issues Days}
 \begin{itemize}
