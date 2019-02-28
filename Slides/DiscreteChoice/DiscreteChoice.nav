@@ -1,8 +1,9 @@
+\beamer@endinputifotherversion {3.36pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
+\headcommand {\sectionentry {1}{Binary Response Model}{2}{Binary Response Model}{0}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\sectionentry {1}{Binary Response Model}{2}{Binary Response Model}{0}}
 \headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
 \headcommand {\slideentry {1}{0}{2}{3/3}{}{0}}
@@ -29,8 +30,7 @@
 \headcommand {\beamer@framepages {13}{13}}
 \headcommand {\slideentry {1}{0}{13}{14/14}{}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@subsectionpages {2}{14}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{15}{Applications}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{15}{Applications}}\headcommand {\beamer@subsectionpages {2}{14}}
 \headcommand {\slideentry {1}{1}{1}{15/15}{Applications}{0}}
 \headcommand {\beamer@framepages {15}{15}}
 \headcommand {\slideentry {1}{1}{2}{16/16}{Applications}{0}}
@@ -77,9 +77,9 @@
 \headcommand {\beamer@framepages {36}{36}}
 \headcommand {\slideentry {1}{1}{23}{38/38}{Applications}{0}}
 \headcommand {\beamer@framepages {38}{38}}
+\headcommand {\sectionentry {2}{Multinomial Choices}{40}{Multinomial Choices}{0}}
 \headcommand {\beamer@sectionpages {2}{39}}
 \headcommand {\beamer@subsectionpages {15}{39}}
-\headcommand {\sectionentry {2}{Multinomial Choices}{40}{Multinomial Choices}{0}}
 \headcommand {\slideentry {2}{0}{1}{40/40}{}{0}}
 \headcommand {\beamer@framepages {40}{40}}
 \headcommand {\slideentry {2}{0}{2}{41/41}{}{0}}
@@ -120,8 +120,7 @@
 \headcommand {\beamer@framepages {58}{58}}
 \headcommand {\slideentry {2}{0}{20}{59/59}{}{0}}
 \headcommand {\beamer@framepages {59}{59}}
-\headcommand {\beamer@subsectionpages {40}{59}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{60}{Applications}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{60}{Applications}}\headcommand {\beamer@subsectionpages {40}{59}}
 \headcommand {\slideentry {2}{1}{1}{60/60}{Applications}{0}}
 \headcommand {\beamer@framepages {60}{60}}
 \headcommand {\slideentry {2}{1}{2}{61/61}{Applications}{0}}
@@ -154,9 +153,9 @@
 \headcommand {\beamer@framepages {75}{75}}
 \headcommand {\slideentry {2}{1}{16}{76/76}{Applications}{0}}
 \headcommand {\beamer@framepages {76}{76}}
+\headcommand {\sectionentry {3}{Count Data}{77}{Count Data}{0}}
 \headcommand {\beamer@sectionpages {40}{76}}
 \headcommand {\beamer@subsectionpages {60}{76}}
-\headcommand {\sectionentry {3}{Count Data}{77}{Count Data}{0}}
 \headcommand {\slideentry {3}{0}{1}{77/77}{}{0}}
 \headcommand {\beamer@framepages {77}{77}}
 \headcommand {\slideentry {3}{0}{2}{78/78}{}{0}}
@@ -177,8 +176,7 @@
 \headcommand {\beamer@framepages {85}{85}}
 \headcommand {\slideentry {3}{0}{10}{86/86}{}{0}}
 \headcommand {\beamer@framepages {86}{86}}
-\headcommand {\beamer@subsectionpages {77}{86}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{87}{Applications}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{87}{Applications}}\headcommand {\beamer@subsectionpages {77}{86}}
 \headcommand {\slideentry {3}{1}{1}{87/87}{Applications}{0}}
 \headcommand {\beamer@framepages {87}{87}}
 \headcommand {\slideentry {3}{1}{2}{88/88}{Applications}{0}}
@@ -191,9 +189,9 @@
 \headcommand {\beamer@framepages {91}{91}}
 \headcommand {\slideentry {3}{1}{6}{92/92}{Applications}{0}}
 \headcommand {\beamer@framepages {92}{92}}
+\headcommand {\sectionentry {4}{Tobit and Selection Models}{93}{Tobit and Selection Models}{0}}
 \headcommand {\beamer@sectionpages {77}{92}}
 \headcommand {\beamer@subsectionpages {87}{92}}
-\headcommand {\sectionentry {4}{Tobit and Selection Models}{93}{Tobit and Selection Models}{0}}
 \headcommand {\slideentry {4}{0}{1}{93/93}{}{0}}
 \headcommand {\beamer@framepages {93}{93}}
 \headcommand {\slideentry {4}{0}{2}{94/94}{}{0}}
@@ -254,8 +252,7 @@
 \headcommand {\beamer@framepages {121}{121}}
 \headcommand {\slideentry {4}{0}{30}{122/122}{}{0}}
 \headcommand {\beamer@framepages {122}{122}}
-\headcommand {\beamer@subsectionpages {93}{122}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{123}{Applications}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{123}{Applications}}\headcommand {\beamer@subsectionpages {93}{122}}
 \headcommand {\slideentry {4}{1}{1}{123/123}{Applications}{0}}
 \headcommand {\beamer@framepages {123}{123}}
 \headcommand {\slideentry {4}{1}{2}{124/124}{Applications}{0}}
@@ -264,4 +261,4 @@
 \headcommand {\beamer@subsectionpages {123}{124}}
 \headcommand {\beamer@sectionpages {93}{124}}
 \headcommand {\beamer@documentpages {124}}
-\headcommand {\gdef \inserttotalframenumber {121}}
+\headcommand {\def \inserttotalframenumber {121}}
