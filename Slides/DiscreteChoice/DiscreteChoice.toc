@@ -1,5 +1,4 @@
-\beamer@endinputifotherversion {3.36pt}
-\select@language {english}
+\babel@toc {english}{}
 \beamer@sectionintoc {1}{Binary Response Model}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{Applications}{15}{0}{1}
 \beamer@sectionintoc {2}{Multinomial Choices}{40}{0}{2}
@@ -7,4 +6,7 @@
 \beamer@sectionintoc {3}{Count Data}{77}{0}{3}
 \beamer@subsectionintoc {3}{1}{Applications}{87}{0}{3}
 \beamer@sectionintoc {4}{Tobit and Selection Models}{93}{0}{4}
-\beamer@subsectionintoc {4}{1}{Applications}{123}{0}{4}
+\beamer@subsectionintoc {4}{1}{Causal relation between education and income}{125}{0}{4}
+\beamer@subsectionintoc {4}{2}{Human Capital Theory: Estimates}{127}{0}{4}
+\beamer@subsectionintoc {4}{3}{Selection problem}{128}{0}{4}
+\beamer@subsectionintoc {4}{4}{Applications}{138}{0}{4}

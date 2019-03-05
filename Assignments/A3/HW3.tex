@@ -1,0 +1,85 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,bottom=3cm,top=2.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,dsfont,bbm,setspace}
+\usepackage[longnamesfirst,nonamebreak]{natbib}
+\usepackage{longtable,booktabs,pdfpages}
+\usepackage[english]{babel}
+\usepackage{eurosym,multirow,hyperref}
+\usepackage[refpage]{nomencl}
+\usepackage[lastexercise]{exercise}
+
+\hypersetup{
+    colorlinks,%
+    citecolor=blue,%
+    filecolor=black,%
+    linkcolor=blue,%
+    urlcolor=black}
+
+\newcommand{\Pe}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Lik}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\ow}{\overline{w}}
+
+%\renewcommand{\labelitemi}{}
+
+\begin{document}
+\doublespacing
+
+\title{\textcolor{blue}{Multinomial Choices}}
+\maketitle
+
+
+\begin{Exercise}[title=Data Description]
+We consider the data ``margarine" in the library bayesm, which is Household Panel Data on Margarine Purchases. 
+A formal description of the data is available \href{https://www.rdocumentation.org/packages/bayesm/versions/3.0-2/topics/margarine}. Provide some descriptive evidence on the data.
+\begin{itemize}
+\item Average and dispersion in product characteristics.
+\item Market share, and market share by product characteristics.
+\item Mapping between observed attributes and choices. 
+\end{itemize}
+\end{Exercise}
+
+\begin{Exercise}[title=First Model]
+
+\begin{itemize}
+\item We are interested in the effect of price on demand. Propose a model specification.
+\item Write the likelihood and optimize the model.
+\item Interpret the coefficient on price. 
+\end{itemize}
+\end{Exercise}
+
+\begin{Exercise}[title=Second Model]
+\begin{itemize}
+\item We are interested in the effect of family income on demand. Propose a model specification.
+\item Write the likelihood and optimize the model.
+\item Interpret the coefficient on family
+\end{itemize}
+\end{Exercise}
+
+\begin{Exercise}[title=Marginal Effects]
+Compute and interpret the marginal effects for the first and second models.
+\end{Exercise}
+
+\begin{Exercise}[title=IIA]
+In this section, we are interested in testing the properties of IIA. We consider the mixed logit setting. 
+\begin{itemize}
+\item We are still interested in the effect of price and family income. Write and optimize the likelihood of the mixed logit. Denote by $\beta^f$ the estimated coefficients.
+\item Consider an alternative specification, where we remove data from one choice. Estimate this model as well, and denote by $\beta^r$ the estimated parameters.
+\item Compute the test statistics:
+\begin{equation}
+MTT = -2 \left[L_r(\beta^f) - L_r(\beta^r) \right] \sim \chi^2(||\beta^r\\)
+\end{equation}
+\item Conclude on IIA.
+\end{itemize}
+\end{Exercise}
+\end{document}
+
+
+
+

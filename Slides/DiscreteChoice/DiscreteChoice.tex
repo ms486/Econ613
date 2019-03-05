@@ -1497,20 +1497,281 @@ E[y] &=& E_{y^{\star}}[E[y\mid y^{\star}]] \\
 \end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Maximum Likelihood}
+\begin{itemize}
+\item Let $y^{\star}$ have density $f^{\star}(y^{\star})$ and cdf $F(y^{\star})$.
+\item Consider censored $y = max(y^{\star},0)$
+\item The density of $y^{\star}$ is 
+\begin{itemize}
+\item $y>0;$ then $y=y^{\star}$ so $f(y) = f^{\star}(y)$
+\item $y=0;$ then $y^{\star}<0$ so $f(0) = F^{\star}(0)$
+\end{itemize}
+\item Define indicator
+\begin{equation*}
+d = \begin{cases} 1, & \mbox{If } y>0 \\ 0, & \mbox{if } y=0 \end{cases}
+\end{equation*}
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Likelihood}
+\begin{itemize}
+\item The density is given $f(y) = f^{\star}(y)^d \times F^{\star}(0)^{1-d}$
+\item The log likelihood is given
+\begin{equation*}
+\log L = \sum_i d_i \log f^{\star}(y_i,x_i,\theta) + (1-d_i) \log F^{\star}(0,x_i,\theta) 
+\end{equation*}
+which is given by
+\begin{equation*}
+\log L(\beta,\sigma^2) = \sum_i d_i \log \tfrac{1}{\sigma} \phi \left(\dfrac{y_i-x_i \beta}{\sigma}\right) + (1-d_i) \log  \Phi(-x_i \beta/ \sigma)
+\end{equation*}
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Truncated Case: Conditional Mean}
+\begin{itemize}
+\item For truncated data only $y^{\star}>0$ is observed.
+\item The conditional density is 
+\begin{equation}
+f^{\star}(y^{\star} \mid y^{\star}>0) = \dfrac{f^{\star}(y^{\star})}{Pr(y^{\star} \mid y^{\star}>0)}
+\end{equation}
+\item The log likelihood is given
+\begin{equation*}
+\log L = \sum_i \log f^{\star}(y_i,x_i,\theta) - \log F^{\star}(0,x_i,\theta) 
+\end{equation*}
+which is given by
+\begin{equation*}
+\log L(\beta,\sigma^2) = \sum_i  \log \tfrac{1}{\sigma} \phi \left(\dfrac{y_i-x_i \beta}{\sigma}\right) - \log  \Phi(x_i \beta/ \sigma)
+\end{equation*}
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Estimation}
+\begin{itemize}
+ \item Standard ML applies...
+ \item NLS on the correct censored or truncated mean (needs to control for Heteroskedacticity).
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Heckman Two-Step Estimator: Motivation}
+\begin{itemize}
+\item Heckman (1976,1979) proposed estimating the censored model using an ingenious two step estimator.
+\item Recall for positive $y$, we have
+\begin{equation}
+ E(y \mid y>0) = x\beta + \sigma f(-x\beta / \sigma)
+\end{equation}
+\item Include $f(-x\beta / \sigma)$ as a regressor.
+\end{itemize}
 \end{frame}
+
+\begin{frame}\frametitle{Heckman Two-Step Estimator: Application}
+\begin{itemize}
+ \item Using censored data, estimate a probit model for whether $y_i>0$, and calculate $\dfrac{\phi(x\tfrac{\beta}{\sigma})}{\Phi(x\tfrac{\beta}{\sigma})}$
+ \item Estimate $\beta$ and $\sigma$ from OLS
+ \begin{equation}
+  y_i = x_i \beta + \sigma  \dfrac{\phi(x\tfrac{\beta_0}{\sigma_0})}{\Phi(x\tfrac{\beta_0}{\sigma_0})} + \varepsilon
+ \end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Pros and Cons}
+\begin{itemize}
+ \item Consistent estimates
+ \item Allows for weaker assumptions
+ \item Standard Errors are incorrect
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Sample Selectivity Model}
+\begin{itemize}
+ \item Most common generalization of the standard tobit
+model is the sample selection or self-selection model.
+\item This is a two-part model
+\item A latent variable that determines the selection.
+\item The variable of interest $y_2^{\star}$ is of interest.
+\item Major complication comes from unobserved component affecting both processes.
+\end{itemize}
+\end{frame}
+
+\subsection{Causal relation between education and income}
+
+
+\frame{\tableofcontents[currentsection,hideothersubsections,currentsubsection]}
+
+\frame{\frametitle{Identifying the causal relation between education and income - From model to estimates}
+\footnotesize
+\begin{table}[tbp] \centering%
+\begin{tabular}{ll}
+\hline\hline\\
+$\ln w=7.58+\underset{(43.8)}{0.070}s$ & $R^{2}=0.067$ \\ 
+$\ln w=6.20+\underset{(72.3)}{0.107}s+\underset{(75.5)}{0.081}x-\underset{%
+(-55.8)}{0.0012}x^{2}$ & $R^{2}=0.285$ \\ 
+$\ln w=4.87+\underset{(23.4)}{0.255}s-\underset{(-7.1)}{0.0029}s^{2}+%
+\underset{(63.7)}{0.148}x-\underset{(-66.2)}{0.0018}x^{2}-\underset{(-31.8)}{%
+0.0043}xs$ & $R^{2}=0.309$ \\ \\ \hline
+\end{tabular}%
+\caption{Estimates of wage equations; $t$ designates the duration of
+schooling, $x$ experience (measured by age minus the duration of schooling
+minus 6 years), and $y$ the annual earnings of white men working in the
+non-agricultural sector in the United States in 1959 (t-statistics in parentheses). 
+Source: Mincer (1974)}
+\end{table}
+}
+
+\subsection{Human Capital Theory: Estimates}
+\frame{\frametitle{The theory of human capital (1)}
+\begin{itemize}
+\item The aim of estimating earnings functions is to evaluate the returns to education
+\item This correlation betrays a \emph{causal link} between education and earnings
+\item Through estimation, it is possible to see the role of education:\vspace{-0.2cm}
+\begin{itemize}
+\item As a signaling device (enabling employers to select the most efficient workers)
+\item As a vector of human capital accumulation
+\end{itemize}	
+\item The main prediction of the theory of human capital is that education is the source of an accumulation of competences, which increases earnings
+\end{itemize}
+}
+
+
+\subsection{Selection problem}
+\frame{\frametitle{Identifying the causal relation between education and income - Selection problem}
+\begin{itemize}
+\item The correlation between duration of schooling and income does not mean \emph{causal} relation
+\item The correlation can stem from the fact that the most efficient individuals have higher earnings and stay in school longer \emph{(selection problem)}
+\item The theory of human capital and signaling theory both predict that the most productive individuals have an interest in studying for the longest period, entailing the possibility of the so called \emph{ability bias}
+\end{itemize}
+}%
+\frame{\frametitle{Identifying the causal relation between education and income  - Selection problem}
+\begin{itemize}
+\item The relation between the wage and the number of years of education is given by $\ln w(s)=\ln w(0)+\rho s$
+\item The population regression coefficient $\rho$ minimizes the expected squared errors in the population as a whole, $E(w-\rho s)^{2}$, where $W=\ln w$. This coefficient is given by:
+\begin{equation*}
+\rho _{OLS}=\frac{Cov(s,W)}{Var(s)} \label{ro_ols}
+\end{equation*}
+\end{itemize}
+}
+
+\frame{\frametitle{Illustration  - Angrist and Krueger (1991)}
+\begin{itemize}
+\item Angrist and Krueger (1991) noted that individuals born early in the calendar year have shorter durations of schooling than those born later
+\item This effect is due to the compulsory duration of schooling where compulsory schooling laws require students to remain in school until their 16th or 17th birthday
+\item By assuming that the date of one's birth is independent of factors influencing abilities and preferences, this phenomenon can entail an exogenous variation in the duration of schooling, which may be used as an instrument 
+\end{itemize}
+}%
+\frame{\frametitle{Illustration  - Angrist and Krueger (1991)}
+\begin{itemize}
+\item To account for age-related trends in earnings, they estimate the following two-stage least squares model:
+\begin{eqnarray*}
+S_{i} &=&\boldsymbol{X}\boldsymbol{\pi} +\sum_{c}\delta _{c}Y_{ic}+\sum_{c}\sum_{j}\theta
+_{jc}Y_{ic}Q_{ij}+\eta _{i} \label{2LSL_1} \\
+w_{i} &=&\boldsymbol{X}\boldsymbol{\beta} +\sum_{c}\zeta _{c}Y_{ic}+\rho
+S_{i}+\varepsilon _{i} \label{2SLS_2}
+\end{eqnarray*}
+\begin{itemize}
+\item $S_i$ represents the years of education of individual $i$
+\item $X_i$ is a vector of covariates
+\item  $Q_{ij}$ is a dummy variable for individual $i$ born in quarter $j$
+\item $Y_{ic}$ is a dummy variable for individual $i$ born in year $c$
+\item $w_i$ is weekly log-wage and $\rho$ characterizes the returns to education
+\end{itemize}
+\end{itemize}
+}%
+\frame{\frametitle{Illustration  - Angrist and Krueger (1991)}
+\scriptsize
+%%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{lccll}
+\hline\hline
+& (1) & (2) & (3) & (4) \\ 
+& OLS & 2SLS & \multicolumn{1}{c}{OLS} & 2SLS \\ \hline
+Years of education & $\underset{(0.0003)}{0.0711}$ & $\underset{(0.0161)}{%
+0.0891}$ & \multicolumn{1}{c}{$\underset{(0.0003)}{0.0632}$} & $\underset{%
+(0.0299)}{0.0600}$ \\ 
+Race (1=black) & \_ & \_ & \multicolumn{1}{c}{$\underset{(0.0040)}{-0.2575}$}
+& $\underset{(0.0458)}{-0.2676}$ \\ 
+SMSA (1=city center) & \_ & \_ & \multicolumn{1}{c}{$\underset{(0.0029)}{%
+0.1763}$} & $\underset{(0.0305)}{0.1797}$ \\ 
+Married (1=married) & \_ & \_ & \multicolumn{1}{c}{$\underset{(0.0032)}{%
+0.2479}$} & $\underset{(0.0073)}{0.2486}$ \\ 
+8 region of residence dummies & \_ & \_ & \multicolumn{1}{c}{yes} & yes \\ 
+Age & \_ & \_ & $\underset{(0.0604)}{-0.0760}$ & $\underset{(0.0626)}{-0.0741%
+}$ \\ 
+Age-squared & \_ & \_ & $\underset{(0.0007)}{0.0008}$ & $\underset{(0.0007)}{%
+0.0007}$ \\ 
+Sargan overidentification test: p-value & \_ & 0.6553 & & 0.8798 \\ 
+Number of observations & 329,509 & 329,509 & 329,509 & 329,509 \\ \hline
+\end{tabular}%
+%TCIMACRO{%
+%\TeXButton{caption}{\caption{ OLS and 2SLS estimates of the returns to education for men born 1930-1939: Census 1980. Year of birth dummies are included in all regressions. Standard errors in parentheses. 
+%Source: Angrist and Krueger dataset (1991).
+%\label{Angrist_Krueger_2SLS}}}}%
+%BeginExpansion
+\caption{ OLS and 2SLS estimates of the returns to education for men born 1930-1939: Census 1980. Year of birth dummies are included in all regressions. Standard errors in parentheses.  \newline
+Source: Angrist and Krueger dataset (1991).
+\label{Angrist_Krueger_2SLS}}%
+%EndExpansion
+%TCIMACRO{\TeXButton{E}{\end{table}}}%
+%BeginExpansion
+\end{table}%
+\normalsize
+}%
+%% DO WE MENTION THE LIMITS OF ANGRIST AND KRUEGER?
+%\frame{\frametitle{Illustration - Angrist and Krueger (1991)}
+%The hypothesis of the homogeneity of the parameter $\rho$ is debatable. 
+%\begin{itemize}
+% \item Persons known as \emph{compliers} have a schooling cost lying between $\gamma$ and $\gamma + \beta$
+% \item Persons known as \emph{never takers} have a duration of study less than 12 years whatever their birth quarter
+% \item Persons known as \emph{always takers} decide to continue their studies until the 12th year whatever their birth quarter
+%\end{itemize}
+%}%
+% \frame{\frametitle{Illustration (11) - Angrist and Krueger (1991)}
+% \begin{itemize}
+% \item The instrumental variable method only yields an estimate of average impact of an increase in the duration of study
+% \item Limitation: Yields Local Average Treatment Effect (LATE) estimator of the returns to education for the compliers: indicating that an instrument can be used to estimate the average causal effect on the compliers only.
+% \item When the potential returns to education are heterogeneous and all individuals are not compliers, this effect differs from the average effect of treatment on the whole population, usually denoted ATE (Average Treatment Effect)
+% \item Oreopoulos (2006) and Carneiro et al. (2011) do demonstrate that such selection problems make the estimation of the returns to education by the instrumental variable method dependent on the instrument
+% \end{itemize}
+% }
+
+\begin{frame}\frametitle{Education and income - Selection problem}
+\begin{itemize}
+\item Within Estimators using Siblings or Twins
+\begin{eqnarray*}
+Y_{ij} &=&  \beta S_{ij} + \gamma A_j + \epsilon_{ij}\\
+S_{ij} &=& \eta A_j + \varepsilon_{ij}
+\end{eqnarray*}
+\item Eliminate unobserved family ability
+\begin{equation*}
+\Delta Y = \beta \Delta S + \Delta u
+\end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Education and income (13) - Selection problem}
+\begin{itemize}
+\item Behrman, Hrubec and Taubman (1980)
+\item Ashenfelter and Krueger (1994)
+\item Behrman and Rosenzweig (1999)
+\end{itemize}
+\begin{itemize}
+\item Assumption: ability is a family specific endowment (same for all children). Twins are identical in their genetic inheritance at conception. 
+\item Unobserved factors that affect the school decision are uncorelated that affect earnings.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Outcomes}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/tables}
+\end{figure}
+\end{frame}
+
+
+\frame{\frametitle{Education and income (14) - Selection problem}
+\begin{itemize}
+\item Ashenfelter and Rouse (1998) find that the differences in the returns to education between genetically identical individuals are slightly weaker than those obtained by comparing the duration of schooling and incomes of any two random individuals
+\item Oreopoulos and Salvanes (2011) have used Norwegian administrative records that supply information on the educational and professional trajectories of all persons born since 1920. They found that siblings with one more year of schooling have more annual income than their less educated siblings, which confirms the results of Ashenfelter and Rouse
+\end{itemize}
+}
 
 
 \begin{frame}
