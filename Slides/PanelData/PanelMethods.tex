@@ -218,7 +218,7 @@ RMSE        & 5.73         \\
 \begin{itemize}
  \item Between Estimator
  \begin{equation}
-  \hat{y}_i = \alpha_i + \beta \hat{x}_{i} + \hat{\epsilon}_{i}
+  \bar{y}_i = \alpha_i + \beta \bar{x}_{i} + \bar{\epsilon}_{i}
  \end{equation}
 \item Problems
 \end{itemize}
@@ -228,8 +228,8 @@ RMSE        & 5.73         \\
 \begin{itemize}
  \item Within Estimator
  \begin{equation}
- y_{it} - \hat{y}_i =  \beta (x_{it} - \hat{x}_{i}) + 
- (\epsilon_{it} - \hat{\epsilon}_{i})
+ y_{it} - \bar{y}_i =  \beta (x_{it} - \bar{x}_{i}) + 
+ (\epsilon_{it} - \bar{\epsilon}_{i})
  \end{equation}
 \item Problems
 \end{itemize}
@@ -245,6 +245,145 @@ RMSE        & 5.73         \\
 \item Problems
 \end{itemize}
 
+\end{frame}
+
+\subsection{Applications}
+
+\begin{frame}\frametitle{More Guns, Less Crime}
+\begin{quote}
+In a remarkable paper published in 1997, John Lott and David Mustard managed
+to set the agenda for much subsequent work on the impact of guns on crime in America
+by creating a massive data set of crime across all U.S. counties from 1977 through 1992
+and amassing a powerful statistical argument that state laws enabling citizens to carry
+concealed handguns had reduced crime.1
+ The initial paper was followed a year later by
+an even more comprehensive and sustained argument to the same effect in a book solely
+authored by John Lott entitled More Guns, Less Crime (now in its second edition). 
+\end{quote}
+\end{frame}
+
+
+\begin{frame}\frametitle{Data: Guns}
+A data frame containing 1,173 observations on 13 variables.
+\begin{itemize}
+ \item state: factor indicating state.
+\item year: factor indicating year.
+\item violent: violent crime rate (incidents per 100,000 members of the population).
+\item murder: murder rate (incidents per 100,000).
+\item robbery: robbery rate (incidents per 100,000).
+\item prisoners: incarceration rate in the state in the previous year 
+\item afam: percent of state population that is African-American
+\item cauc: percent of state population that is Caucasian, \item male: percent of state population that is male
+\item population: state population, in millions of people.
+\item income: real per capita personal income in the state (US \$).
+\item density population per square mile of land area, divided by 1,000.
+\item law factor. Does the state have a shall carry law in effect in that year?
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Overtime Variation}
+\begin{figure}
+\includegraphics[width = 9cm]{plot/Time}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{Cross-sectional Variation (1)}
+\begin{figure}
+\includegraphics[width = 8cm]{plot/State}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Cross-sectional Variation (2)}
+\begin{figure}
+\includegraphics[width = 8cm]{plot/State_wrap}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{First regressions}
+\begin{table}
+\tiny
+\begin{center}
+\begin{tabular}{l c c c c }
+\hline
+  & \multicolumn{2}{c}{Violent Crime} & \multicolumn{2}{c}{Robbery}\\
+ & Model 1 & Model 2 & Model 1 & Model 2 \\
+\hline
+(Intercept) & $6.13^{***}$  & $2.98^{***}$  & $4.87^{***}$  & $0.90$        \\
+            & $(0.02)$      & $(0.54)$      & $(0.03)$      & $(0.77)$      \\
+lawyes      & $-0.44^{***}$ & $-0.37^{***}$ & $-0.77^{***}$ & $-0.53^{***}$ \\
+            & $(0.04)$      & $(0.03)$      & $(0.06)$      & $(0.05)$      \\
+prisoners   &               & $0.00^{***}$  &               & $0.00^{***}$  \\
+            &               & $(0.00)$      &               & $(0.00)$      \\
+density     &               & $0.03^{*}$    &               & $0.09^{***}$  \\
+            &               & $(0.01)$      &               & $(0.02)$      \\
+income      &               & $0.00$        &               & $0.00^{***}$  \\
+            &               & $(0.00)$      &               & $(0.00)$      \\
+population  &               & $0.04^{***}$  &               & $0.08^{***}$  \\
+            &               & $(0.00)$      &               & $(0.00)$      \\
+afam        &               & $0.08^{***}$  &               & $0.10^{***}$  \\
+            &               & $(0.02)$      &               & $(0.02)$      \\
+cauc        &               & $0.03^{***}$  &               & $0.03^{*}$    \\
+            &               & $(0.01)$      &               & $(0.01)$      \\
+male        &               & $0.01$        &               & $0.03$        \\
+            &               & $(0.01)$      &               & $(0.02)$      \\
+\hline
+R$^2$       & 0.09          & 0.56          & 0.12          & 0.60          \\
+Adj. R$^2$  & 0.09          & 0.56          & 0.12          & 0.59          \\
+Num. obs.   & 1173          & 1173          & 1173          & 1173          \\
+RMSE        & 0.62          & 0.43          & 0.90          & 0.61          \\
+\hline
+\multicolumn{5}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{table:coefficients}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Exploiting the Panel Structure}
+\begin{table}
+\tiny
+\begin{center}
+\begin{tabular}{l c c c }
+\hline
+ & Model 1 & Model 2 & Model 3 \\
+\hline
+(Intercept)               & $4.04^{***}$  & $3.09^{***}$  & $3.97^{***}$  \\
+                          & $(0.39)$      & $(0.58)$      & $(0.47)$      \\
+lawyes                    & $-0.05^{*}$   & $-0.29^{***}$ & $-0.03$       \\
+                          & $(0.02)$      & $(0.03)$      & $(0.02)$      \\
+prisoners                 & $-0.00$       & $0.00^{***}$  & $0.00$        \\
+                          & $(0.00)$      & $(0.00)$      & $(0.00)$      \\
+density                   & $-0.17^{*}$   & $-0.01$       & $-0.09$       \\
+                          & $(0.09)$      & $(0.01)$      & $(0.08)$      \\
+income                    & $-0.00$       & $0.00$        & $0.00$        \\
+                          & $(0.00)$      & $(0.00)$      & $(0.00)$      \\
+population                & $0.01$        & $0.04^{***}$  & $-0.00$       \\
+                          & $(0.01)$      & $(0.00)$      & $(0.01)$      \\
+afam                      & $0.10^{***}$  & $0.10^{***}$  & $0.03$        \\
+                          & $(0.02)$      & $(0.02)$      & $(0.02)$      \\
+cauc                      & $0.04^{***}$  & $0.04^{***}$  & $0.01$        \\
+                          & $(0.01)$      & $(0.01)$      & $(0.01)$      \\
+male                      & $-0.05^{***}$ & $-0.04^{*}$   & $0.07^{***}$  \\
+                          & $(0.01)$      & $(0.02)$      & $(0.02)$      \\
+State FE & YES & NO & YES \\
+TIME FE & NO & YES & YES \\
+\hline
+R$^2$                     & 0.94          & 0.59          & 0.96          \\
+Adj. R$^2$                & 0.94          & 0.58          & 0.95          \\
+Num. obs.                 & 1173          & 1173          & 1173          \\
+RMSE                      & 0.16          & 0.42          & 0.14          \\
+\hline
+\multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{table:coefficients}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{}
 \end{frame}
 
 
