@@ -383,6 +383,197 @@ RMSE                      & 0.16          & 0.42          & 0.14          \\
 \end{table}
 \end{frame}
 
+
+\begin{frame}\frametitle{Data: EmplUK}
+Employment and Wages in the United Kingdom
+\begin{itemize}
+\item An unbalanced panel of 140 observations from 1976 to 1984
+\item firm: firm index
+\item year: year
+\item sector: the sector of activity
+\item emp: employment
+\item wage: wages
+\item capital: capital
+\item output: output
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Unbalanced Panel: Definitions}
+\begin{itemize}
+\item Unbalanced panel: Definition
+\item What to do: Missing at random?
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Unbalanced Panel: Solutions}
+\begin{itemize}
+\item Testing for missingness at random.
+\item Missing at random
+\begin{itemize}
+\item Imputation
+\item Full sample 
+\item Non missing sample
+\end{itemize}
+\item Not missing at random
+\begin{itemize}
+\item Understand why?
+\item Find an instrument
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Description}
+\begin{table}[!htbp] \centering 
+\footnotesize
+  \caption{} 
+  \label{} 
+\begin{tabular}{lccccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+firm & 1,031 & 73.204 & 41.233 & 1 & 37 & 110 & 140 \\ 
+year & 1,031 & 1,979.651 & 2.216 & 1,976 & 1,978 & 1,981 & 1,984 \\ 
+sector & 1,031 & 5.123 & 2.678 & 1 & 3 & 8 & 9 \\ 
+emp & 1,031 & 7.892 & 15.935 & 0.104 & 1.180 & 7.020 & 108.562 \\ 
+wage & 1,031 & 23.919 & 5.648 & 8.017 & 20.636 & 27.494 & 45.232 \\ 
+capital & 1,031 & 2.507 & 6.249 & 0.012 & 0.221 & 1.501 & 47.108 \\ 
+output & 1,031 & 103.801 & 9.938 & 86.900 & 97.098 & 110.603 & 128.365 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table} 
+\end{frame}
+
+\begin{frame}\frametitle{Linear VS Log Specifications}
+\begin{table}
+\footnotesize
+\begin{center}
+\begin{tabular}{l c c }
+\hline
+ & Log & Linear \\
+\hline
+(Intercept)  & $0.34$        & $8.25^{**}$   \\
+             & $(0.86)$      & $(3.11)$      \\
+log(wage)    & $-0.37^{***}$ &               \\
+             & $(0.06)$      &               \\
+log(capital) & $0.81^{***}$  &               \\
+             & $(0.01)$      &               \\
+log(output)  & $0.48^{**}$   &               \\
+             & $(0.18)$      &               \\
+wage         &               & $-0.32^{***}$ \\
+             &               & $(0.05)$      \\
+capital      &               & $2.11^{***}$  \\
+             &               & $(0.04)$      \\
+output       &               & $0.02$        \\
+             &               & $(0.03)$      \\
+\hline
+R$^2$        & 0.84          & 0.69          \\
+Adj. R$^2$   & 0.84          & 0.69          \\
+Num. obs.    & 1031          & 1031          \\
+\hline
+\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{table:coefficients}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Fixed VS Random Effects}
+\begin{table}
+\footnotesize
+\begin{center}
+\begin{tabular}{l c c }
+\hline
+ & Fixed Effects & Random Effect \\
+\hline
+(Intercept)  & $2.20^{**}$   &       \\
+             &  $(0.15)$     &       \\
+log(wage)    & $-0.24^{***}$ &  $-0.61^{***}$             \\
+             & $(0.05)$      &   $(0.03)$            \\
+log(capital) & $0.61^{***}$  &  $0.56^{***}$            \\
+             & $(0.07)$      &  $(0.02)$             \\
+\hline
+R$^2$        & 0.78          & 0.99          \\
+Num. obs.    & 1031          & 1031          \\
+\hline
+\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{table:coefficients}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{Specification Problem}
+\begin{itemize}
+\item Choosing between random and fixed effects;
+\item Durbin - Wu - Hausman Test 
+\begin{equation}
+H = (\beta_{FE} - \beta_{RE})' (Var(\beta_{FE}) - Var(\beta_{RE}))' (\beta_{FE} - \beta_{RE}) 
+\end{equation}
+\item $H \sim \chi_2(rank(Var(\beta_{FE}) - Var(\beta_{RE}))$
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Data: US STATES PRODUCTION}
+\begin{itemize}
+\item state: state
+\item year: year
+\item region: the region
+\item pcap: public capital stock
+\item hwy: highway and streets
+\item water: water and sewer facilities
+\item util: other public buildings and structures
+\item pc:private capital stock
+\item gsp: gross state product
+\item emp: labor input measured by the employment in nonagricultural payrolls
+\item unemp: state unemployment rate
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Specifications}
+\begin{table}
+\begin{center}
+\begin{tabular}{l c c c }
+\hline
+ & Within & Between & First Difference \\
+\hline
+log(pcap)   & $-0.03$       & $0.18^{*}$   & $-0.01$       \\
+            & $(0.03)$      & $(0.07)$     & $(0.05)$      \\
+log(pc)     & $0.29^{***}$  & $0.30^{***}$ & $-0.03$       \\
+            & $(0.03)$      & $(0.04)$     & $(0.02)$      \\
+log(emp)    & $0.77^{***}$  & $0.58^{***}$ & $0.83^{***}$  \\
+            & $(0.03)$      & $(0.06)$     & $(0.04)$      \\
+unemp       & $-0.01^{***}$ & $-0.00$      & $-0.01^{***}$ \\
+            & $(0.00)$      & $(0.01)$     & $(0.00)$      \\
+(Intercept) &               & $1.59^{***}$ & $0.01^{***}$  \\
+            &               & $(0.23)$     & $(0.00)$      \\
+\hline
+R$^2$       & 0.94          & 0.99         & 0.69          \\
+Adj. R$^2$  & 0.94          & 0.99         & 0.69          \\
+Num. obs.   & 816           & 48           & 768           \\
+\hline
+\multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{table:coefficients}
+\end{center}
+\end{table}
+\end{frame}
+
+\section{Nonlinear Panel}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
 \begin{frame}\frametitle{}
 \end{frame}
 
