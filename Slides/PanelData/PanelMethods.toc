@@ -1,5 +1,6 @@
-\beamer@endinputifotherversion {3.36pt}
-\select@language {english}
+\babel@toc {english}{}
 \beamer@sectionintoc {1}{Linear Models}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{Applications}{19}{0}{1}
-\beamer@sectionintoc {2}{Nonlinear Panel}{35}{0}{2}
+\beamer@sectionintoc {2}{Econometrics of Policy Evaluation}{35}{0}{2}
+\beamer@sectionintoc {3}{Applications}{48}{0}{3}
+\beamer@sectionintoc {4}{Nonlinear Panel}{54}{0}{4}

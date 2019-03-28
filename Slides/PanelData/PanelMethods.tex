@@ -563,6 +563,167 @@ Num. obs.   & 816           & 48           & 768           \\
 \end{table}
 \end{frame}
 
+\section{Econometrics of Policy Evaluation}
+
+\begin{frame}
+\tableofcontents[currentsection] 
+\end{frame}
+
+\begin{frame}\frametitle{Statement}
+\begin{itemize}
+\item Identify the causal effect of a policy
+\begin{itemize}
+ \item Minimum Wages on Employment
+ \item Training on Wages
+ \item Class size on Student Outcomes
+ \item Welfare on Labor Supply
+\end{itemize}
+\item Essentially a self selection problem 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}\frametitle{Evaluation Problem}
+\begin{itemize}
+\item Let $y_1$ denote the outcome with treatment 
+ \item Let $y_0$ denote the outcome without treatment
+ \item We are interested in the average treatment effect 
+\begin{equation}
+ ATE = E(y_1 - y_0)
+\end{equation}
+ \item Evaluation problem: An individual can not be in both states, we can not observe both $y_0$ and $y_1$.
+ \item Another quantity is the average treatment effect of the treated (Let $w$ be an indicator of treatment).
+ \begin{equation}
+  ATT = E(y_1 - y_0 \mid w=1)
+ \end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Assumptions}
+Under which assumptions can you do a DiD?
+\begin{itemize}
+ \item Stable Unit Treatment Value
+Assumption (SUTVA):  potential outcomes for each person i
+ are unrelated to the treatment status of other individuals
+\item  Random Assignment.
+ The treatment assignment is random i.e we have an independent, identically distributed
+sample from the population
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Threat to Validity}
+\begin{itemize}
+ \item Pre-trend
+ \item Placebo Effect
+ \item Rubin Effect
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{DiD as a Linear Regression}
+Consider 
+\begin{equation}
+ Y_{it} = \alpha + \delta Post_t + \gamma D_i + \beta Post_t D_i + \epsilon_{it}
+\end{equation}
+Where
+\begin{itemize}
+ \item $D_i=1$ if treated, 0 otherwise
+ \item $Post_t=1$ after the implementation of the policy 
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Alternative Method: Regression discontinuity}
+The Key intuition for RDD is that we have an understanding of the mechanism which underlies the assignment of treatment. Specifically, assignment to treatment depends on a single variable. In the sharp, regression discontinuity design, the running variable fully determines the treatment
+
+\begin{equation}
+D_i = \begin{cases} 1, & \mbox{If } X_i > X_0 \\ 0, & \mbox{If } X_i < X_0 \end{cases}
+\end{equation}
+\end{frame}
+
+\begin{frame}\frametitle{Idea}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/Idea}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{Some examples (1)}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/ProbWinning}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Some examples (2)}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/Charged}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Some examples (3)}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/MaimonidesRule}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Explanation (1)}
+\begin{quote}
+Twenty five children may be put in charge of one
+teacher. If the number in the class exceeds
+twenty five but is not more than forty, he should
+have an assistant to help with the instruction. If
+there are more than forty, two teachers must be
+appointed. 
+\end{quote}
+\end{frame}
+
+\begin{frame}\frametitle{Explanation (2)}
+\begin{itemize}
+\item A law prevents class size to exceed say 30
+\item If cohorts are of average size 90 but fluctuates
+\item If cohort size is 91-96, we end up four classrooms of size 22 to 24, while if cohort size is 85-90, we end up with three classrooms of size 28 to 30. 
+\end{itemize}
+Angrist and Lavy (1999): Comparing test outcomes between students who are randomly assigned to the small vs large classes gives you a credible estimate of the effect of class size on academic performance. 10\% decrease in class size increases test score by about 0.2 to 0.3 standard deviations. 
+\end{frame}
+
+\section{Applications}
+
+\begin{frame}\frametitle{Uses and Abuses of Empirical Evidence in the Death Penalty Debate}
+\begin{itemize}
+ \item Deterrance Effect of the death penalty
+ \item What can we say?
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Evidence and Abuse (1)}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/HomicidesExecution}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Evidence and Abuse (2)}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/USCanada}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Evidence and Abuse (3)}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/Nondeath}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Evidence and Abuse (4)}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/Illinois}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Evidence and Abuse (5)}
+\begin{figure}
+\includegraphics[width = 10cm]{plot/Table}
+\end{figure}
+\end{frame}
+
+
 \section{Nonlinear Panel}
 
 \begin{frame}\frametitle{}

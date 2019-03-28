@@ -1,9 +1,8 @@
-\beamer@endinputifotherversion {3.36pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
-\headcommand {\sectionentry {1}{Linear Models}{2}{Linear Models}{0}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\sectionentry {1}{Linear Models}{2}{Linear Models}{0}}
 \headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
 \headcommand {\slideentry {1}{0}{2}{3/3}{}{0}}
@@ -38,7 +37,8 @@
 \headcommand {\beamer@framepages {17}{17}}
 \headcommand {\slideentry {1}{0}{17}{18/18}{}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{19}{Applications}}\headcommand {\beamer@subsectionpages {2}{18}}
+\headcommand {\beamer@subsectionpages {2}{18}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{19}{Applications}}
 \headcommand {\slideentry {1}{1}{1}{19/19}{Applications}{0}}
 \headcommand {\beamer@framepages {19}{19}}
 \headcommand {\slideentry {1}{1}{2}{20/20}{Applications}{0}}
@@ -71,9 +71,9 @@
 \headcommand {\beamer@framepages {33}{33}}
 \headcommand {\slideentry {1}{1}{16}{34/34}{Applications}{0}}
 \headcommand {\beamer@framepages {34}{34}}
-\headcommand {\sectionentry {2}{Nonlinear Panel}{35}{Nonlinear Panel}{0}}
 \headcommand {\beamer@sectionpages {2}{34}}
 \headcommand {\beamer@subsectionpages {19}{34}}
+\headcommand {\sectionentry {2}{Econometrics of Policy Evaluation}{35}{Econometrics of Policy Evaluation}{0}}
 \headcommand {\slideentry {2}{0}{1}{35/35}{}{0}}
 \headcommand {\beamer@framepages {35}{35}}
 \headcommand {\slideentry {2}{0}{2}{36/36}{}{0}}
@@ -82,8 +82,52 @@
 \headcommand {\beamer@framepages {37}{37}}
 \headcommand {\slideentry {2}{0}{4}{38/38}{}{0}}
 \headcommand {\beamer@framepages {38}{38}}
-\headcommand {\beamer@partpages {1}{38}}
-\headcommand {\beamer@subsectionpages {35}{38}}
-\headcommand {\beamer@sectionpages {35}{38}}
-\headcommand {\beamer@documentpages {38}}
-\headcommand {\def \inserttotalframenumber {38}}
+\headcommand {\slideentry {2}{0}{5}{39/39}{}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\slideentry {2}{0}{6}{40/40}{}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\slideentry {2}{0}{7}{41/41}{}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {2}{0}{8}{42/42}{}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {2}{0}{9}{43/43}{}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\slideentry {2}{0}{10}{44/44}{}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {2}{0}{11}{45/45}{}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\slideentry {2}{0}{12}{46/46}{}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {2}{0}{13}{47/47}{}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\beamer@sectionpages {35}{47}}
+\headcommand {\beamer@subsectionpages {35}{47}}
+\headcommand {\sectionentry {3}{Applications}{48}{Applications}{0}}
+\headcommand {\slideentry {3}{0}{1}{48/48}{}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\slideentry {3}{0}{2}{49/49}{}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\slideentry {3}{0}{3}{50/50}{}{0}}
+\headcommand {\beamer@framepages {50}{50}}
+\headcommand {\slideentry {3}{0}{4}{51/51}{}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\slideentry {3}{0}{5}{52/52}{}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\slideentry {3}{0}{6}{53/53}{}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\beamer@sectionpages {48}{53}}
+\headcommand {\beamer@subsectionpages {48}{53}}
+\headcommand {\sectionentry {4}{Nonlinear Panel}{54}{Nonlinear Panel}{0}}
+\headcommand {\slideentry {4}{0}{1}{54/54}{}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\slideentry {4}{0}{2}{55/55}{}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {4}{0}{3}{56/56}{}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {4}{0}{4}{57/57}{}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\beamer@partpages {1}{57}}
+\headcommand {\beamer@subsectionpages {54}{57}}
+\headcommand {\beamer@sectionpages {54}{57}}
+\headcommand {\beamer@documentpages {57}}
+\headcommand {\gdef \inserttotalframenumber {57}}
