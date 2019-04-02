@@ -1,0 +1,110 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,bottom=3cm,top=2.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,dsfont,bbm,setspace}
+\usepackage[longnamesfirst,nonamebreak]{natbib}
+\usepackage{longtable,booktabs,pdfpages}
+\usepackage[english]{babel}
+\usepackage{eurosym,multirow,hyperref}
+\usepackage[refpage]{nomencl}
+\usepackage[lastexercise]{exercise}
+
+\hypersetup{
+    colorlinks,%
+    citecolor=blue,%
+    filecolor=black,%
+    linkcolor=blue,%
+    urlcolor=black}
+
+\newcommand{\Pe}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Lik}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\ow}{\overline{w}}
+
+%\renewcommand{\labelitemi}{}
+
+\begin{document}
+\doublespacing
+
+\title{\textcolor{blue}{Linear Panel Data}}
+\maketitle
+
+The goal of this exercise is to apply linear panel data techniques. You are allowed to use the pre-programmed OLS estimator in your preferred statistical package.
+
+
+\begin{Exercise}[title=Data]
+Load the data ``Koop - Tobias'', which comes from
+Koop and Tobias (2004) Labor Market Experience Data.   
+(See Koop, G. and J. Tobias, "Learning About Heterogeneity in Returns to Schooling," Journal of Applied Econometrics, 19, 2004, pp. 827-849.
+
+The data file is in two parts. The first file contains the panel of 17,919 observations on the Person ID and 4 time-varying variables. The second file contains time invariant variables for the individual or the 2,178 households. 
+
+Variables in the file may be changing over time 
+\begin{itemize}
+\item PERSONID = Person id (ranging from 1 to 2,178),
+\item EDUC = Education,
+\item LOGWAGE = Log of hourly wage,
+\item POTEXPER = Potential experience,
+\item TIMETRND = Time trend.
+\end{itemize}
+
+or time invariant
+\begin{itemize}
+\item ABILITY = Ability,
+\item MOTHERED = Mother's education,
+\item FATHERED = Father's education,
+\item BRKNHOME = Dummy variable for residence in a broken home,
+\item SIBLINGS = Number of siblings
+\end{itemize}
+Represent the panel dimension of wages for 5 randomly selected individuals. 
+\end{Exercise}
+
+
+\begin{Exercise}[title=Random Effects]
+We are interested in
+\begin{equation}
+ LOGWAGE_{it} = \alpha_i + \beta_{1} EDUC_{it} + \beta_{2} POTEXPR_{it} + \epsilon_{it} 
+\end{equation}
+Where $\alpha_i$ is a random effect. Estimate the random effect model under the normality assumption of the disturbance terms. 
+\end{Exercise}
+
+
+\begin{Exercise}[title=Fixed Effects Model]
+We are interested in
+\begin{equation}
+ LOGWAGE_{it} = \alpha_i + \beta_1 EDUC_{it} + \beta_2 POTEXPR_{it} + \epsilon_{it} 
+\end{equation}
+Where $\alpha_i$ is individual fixed effect. Estimate the following estimators
+\begin{itemize}
+ \item Between Estimator
+ \item Within Estimator
+ \item First time difference Estimator
+\end{itemize}
+Compare the estimates of $\beta_1$ and $\beta_2$ under the different models.
+\end{Exercise}
+
+\begin{Exercise}[title=Understanding Fixed Effects]
+In the rest of the assignment, we consider only a random selected 100 individuals. We are interested in
+\begin{equation}
+ LOGWAGE_{it} = \alpha_i + \beta_1 EDUC_{it} + \beta_2 POTEXPR_{it} + \epsilon_{it} 
+\end{equation}
+Where $\alpha_i$ is individual fixed effect.
+\begin{itemize}
+ \item Write and optimize the likelihood associated to the problem and estimate the individual fixed effect parameters
+ \item Run a regression of estimated individual fixed effets on the invariant variables.
+ \item The standard errors in the previous may not be correctly estimated. Explain why, and propose an alternative method to compute standard errors.
+\end{itemize}
+\end{Exercise}
+
+
+
+\end{document}
+
+
+
+
