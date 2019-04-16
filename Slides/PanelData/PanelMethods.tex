@@ -723,21 +723,126 @@ Angrist and Lavy (1999): Comparing test outcomes between students who are random
 \end{figure}
 \end{frame}
 
+\section{Recap Issues day}
 
-\section{Nonlinear Panel}
-
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Summary}
+\begin{itemize}
+\item Immigration
+\item Intergenerational Mobility
+\item Minimum Wages
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Issues}
+\begin{itemize}
+\item Causal Inference is hard!
+\item Problems
+\begin{itemize}
+\item Data selection
+\item Specification
+\end{itemize}
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+
+\section{Discrete Choice with Panel Data}
+
+\begin{frame}\frametitle{Motivation}
+\begin{itemize}
+\item Determinant of an outcome variable which varies over time.
+\item Example
+\begin{itemize}
+\item Fertility 
+\item Retirement
+\item Binary decisions with life-cycle component
+\item \ldots
+\end{itemize}
+\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Probit and Logit}
+\begin{itemize}
+\item Consider an individual specific effect, such that 
+\begin{equation}
+Pr(y_{it}=1_ = F(x_{it} \beta + \alpha_i)
+\end{equation}
+\item Likelihood can be written naturally
+\end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{Fixed effect estimation}
+\begin{itemize}
+\item Probit case - kind of complicated - incidental parameter problem. 
+\item Logit case - conditional MLE
+\item No quasi-differencing estimator
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Random effect }
+\begin{itemize}
+\item Probit - complicated numerically - requires numerical integration
+\item Logit - relatively simple
+\end{itemize}
+\end{frame}
+
+
+
+\section{Survival Analysis}
+
+\begin{frame}\frametitle{Transition Data}
+\begin{itemize}
+ \item Panel Data
+ \item Outcome variable is a duration: length of time until an event occurs (or a spell ends)
+ \item Examples
+ \begin{itemize}
+  \item Unemployment
+  \item Strike 
+  \item Time to (buy a house, marry, divorce....)
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Basic concepts}
+\begin{itemize}
+\item Density: $f(t)$
+\item Distribution: $F(t)$ 
+\item Survival Function: $S(t)=1-F(t)$
+\item Hazard rate: $\lambda(t) = \lim_{h \rightarrow 0} \dfrac{Pr[t<T<t+h \mid T\geq t]}{h} = \dfrac{f(t)}{1-F(t)} = \dfrac{f(t)}{S(t)}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Estimation methods}
+\begin{itemize}
+\item Nonparametric: Kaplan Meier
+\item Parametric: Exponential, Weibull,
+\item Semi-parametric: Cox Proportional Hazard
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Likelihood based Estimation}
+\begin{itemize}
+\item Censoring
+\begin{equation}
+d_i = \begin{cases} 1, & \mbox{no censoring} \\ 0, & \mbox{right censoring } \end{cases}
+\end{equation}
+\item Likelihood
+\begin{equation}
+\log \Lik(\theta) = d_i \log f(t_i \mid X,\theta) + (1-d_i) \log S(t_i \mid X,\theta)
+\end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Student Evaluations}
+\begin{itemize}
+\item Coding - 60 \% (due April 16th)
+\item Reading notes - 40\% (due April 19th)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Course Evaluation}
+\url{https://duke.qualtrics.com/jfe/form/SV_9t7Bige533zblMp}
+\end{frame}
 
 \end{document}
 
