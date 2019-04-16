@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.10.6)  16 APR 2019 01:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.10.6)  16 APR 2019 09:53
 entering extended mode
 **./PanelMethods.tex
 (PanelMethods.tex
@@ -1202,7 +1202,7 @@ thkerncmss.
 ] [7
 
 ]
-<plot/reg1.pdf, id=98, 614.295pt x 794.97pt>
+<plot/reg1.pdf, id=110, 614.295pt x 794.97pt>
 File: plot/reg1.pdf Graphic file (type pdf)
  <use plot/reg1.pdf>
 Package pdftex.def Info: plot/reg1.pdf used on input line 136.
@@ -1218,7 +1218,7 @@ cients}) has been already used, duplicate ignored
 l.176 \end{frame}
                   [10
 
-] <plot/reg2.pdf, id=119, 614.295pt x 794.97pt>
+] <plot/reg2.pdf, id=131, 614.295pt x 794.97pt>
 File: plot/reg2.pdf Graphic file (type pdf)
 
 <use plot/reg2.pdf>
@@ -1245,7 +1245,7 @@ Package pdftex.def Info: plot/reg2.pdf used on input line 183.
 
 ] [20
 
-] <plot/Time.pdf, id=177, 505.89pt x 505.89pt>
+] <plot/Time.pdf, id=189, 505.89pt x 505.89pt>
 File: plot/Time.pdf Graphic file (type pdf)
 
 <use plot/Time.pdf>
@@ -1257,7 +1257,7 @@ Overfull \vbox (22.80527pt too high) detected at line 288
 
 [21
 
- <./plot/Time.pdf>] <plot/State.pdf, id=189, 505.89pt x 505.89pt>
+ <./plot/Time.pdf>] <plot/State.pdf, id=201, 505.89pt x 505.89pt>
 File: plot/State.pdf Graphic file (type pdf)
 
 <use plot/State.pdf>
@@ -1266,7 +1266,7 @@ Package pdftex.def Info: plot/State.pdf used on input line 295.
  [22
 
  <./plot/State.pdf>]
-<plot/State_wrap.pdf, id=201, 505.89pt x 505.89pt>
+<plot/State_wrap.pdf, id=213, 505.89pt x 505.89pt>
 File: plot/State_wrap.pdf Graphic file (type pdf)
  <use plot/State_wrap.pdf>
 Package pdftex.def Info: plot/State_wrap.pdf used on input line 301.
@@ -1345,14 +1345,14 @@ l.564 \end{frame}
 ]
 [41
 
-] <plot/Idea.png, id=317, 578.16pt x 325.215pt>
+] <plot/Idea.png, id=331, 578.16pt x 325.215pt>
 File: plot/Idea.png Graphic file (type png)
  <use plot/Idea.png>
 Package pdftex.def Info: plot/Idea.png used on input line 646.
 (pdftex.def)             Requested size: 284.52756pt x 160.04651pt.
  [42
 
- <./plot/Idea.png>] <plot/ProbWinning.png, id=323, 606.265pt x 388.45125pt>
+ <./plot/Idea.png>] <plot/ProbWinning.png, id=337, 606.265pt x 388.45125pt>
 File: plot/ProbWinning.png Graphic file (type png)
 
 <use plot/ProbWinning.png>
@@ -1361,14 +1361,14 @@ Package pdftex.def Info: plot/ProbWinning.png used on input line 653.
  [43
 
  <./plot/ProbWinning.png>]
-<plot/Charged.png, id=330, 578.16pt x 345.29pt>
+<plot/Charged.png, id=344, 578.16pt x 345.29pt>
 File: plot/Charged.png Graphic file (type png)
  <use plot/Charged.png>
 Package pdftex.def Info: plot/Charged.png used on input line 659.
 (pdftex.def)             Requested size: 284.52756pt x 169.92592pt.
  [44
 
- <./plot/Charged.png>] <plot/MaimonidesRule.png, id=336, 578.16pt x 325.215pt>
+ <./plot/Charged.png>] <plot/MaimonidesRule.png, id=350, 578.16pt x 325.215pt>
 File: plot/MaimonidesRule.png Graphic file (type png)
 
 <use plot/MaimonidesRule.png>
@@ -1383,7 +1383,7 @@ Package pdftex.def Info: plot/MaimonidesRule.png used on input line 665.
 ]
 [48
 
-] <plot/HomicidesExecution.png, id=356, 578.16pt x 325.215pt>
+] <plot/HomicidesExecution.png, id=370, 578.16pt x 325.215pt>
 File: plot/HomicidesExecution.png Graphic file (type png)
 
 <use plot/HomicidesExecution.png>
@@ -1392,7 +1392,7 @@ Package pdftex.def Info: plot/HomicidesExecution.png used on input line 700.
  [49
 
  <./plot/HomicidesExecution.png>]
-<plot/USCanada.png, id=363, 578.16pt x 325.215pt>
+<plot/USCanada.png, id=377, 578.16pt x 325.215pt>
 File: plot/USCanada.png Graphic file (type png)
  <use plot/USCanada.png>
 Package pdftex.def Info: plot/USCanada.png used on input line 706.
@@ -1400,7 +1400,7 @@ Package pdftex.def Info: plot/USCanada.png used on input line 706.
 
 [50
 
- <./plot/USCanada.png>] <plot/Nondeath.png, id=369, 578.16pt x 325.215pt>
+ <./plot/USCanada.png>] <plot/Nondeath.png, id=383, 578.16pt x 325.215pt>
 File: plot/Nondeath.png Graphic file (type png)
 
 <use plot/Nondeath.png>
@@ -1409,7 +1409,7 @@ Package pdftex.def Info: plot/Nondeath.png used on input line 712.
  [51
 
  <./plot/Nondeath.png>]
-<plot/Illinois.png, id=375, 578.16pt x 325.215pt>
+<plot/Illinois.png, id=389, 578.16pt x 325.215pt>
 File: plot/Illinois.png Graphic file (type png)
  <use plot/Illinois.png>
 Package pdftex.def Info: plot/Illinois.png used on input line 718.
@@ -1417,7 +1417,7 @@ Package pdftex.def Info: plot/Illinois.png used on input line 718.
 
 [52
 
- <./plot/Illinois.png>] <plot/Table.png, id=381, 578.16pt x 372.39125pt>
+ <./plot/Illinois.png>] <plot/Table.png, id=395, 578.16pt x 372.39125pt>
 File: plot/Table.png Graphic file (type png)
 
 <use plot/Table.png>
@@ -1425,26 +1425,39 @@ Package pdftex.def Info: plot/Table.png used on input line 724.
 (pdftex.def)             Requested size: 284.52756pt x 183.26314pt.
  [53
 
- <./plot/Table.png>] [54
+ <./plot/Table.png>] (PanelMethods.toc) [54
 
 ] [55
 
-] [56
+]
+[56
 
-] [57
+] (PanelMethods.toc) [57
 
 ] [58
 
 ] [59
 
-]
-[60
+] [60
 
 ] [61
 
-] [62
+] (PanelMethods.toc) [62
 
-] [63
+]
+[63
+
+] [64
+
+] [65
+
+] [66
+
+] (PanelMethods.toc) [67
+
+] [68
+
+] [69
 
 ]
 \tf@nav=\write6
@@ -1456,13 +1469,13 @@ Package pdftex.def Info: plot/Table.png used on input line 724.
 \tf@snm=\write8
 \openout8 = `PanelMethods.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 825.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 825.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 864.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 864.
  (PanelMethods.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 825.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 825.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 864.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 864.
 Package rerunfilecheck Info: File `PanelMethods.out' has not changed.
-(rerunfilecheck)             Checksum: B1BA72E8968B72ED7746A590C2E51856;349.
+(rerunfilecheck)             Checksum: B153712CC3A675472BC63CD5C6815DDA;448.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1471,13 +1484,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 825.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 864.
  ) 
 Here is how much of TeX's memory you used:
- 20094 strings out of 493334
- 375186 string characters out of 3130222
- 457963 words of memory out of 3000000
- 22986 multiletter control sequences out of 15000+200000
+ 20136 strings out of 493334
+ 375634 string characters out of 3130222
+ 457964 words of memory out of 3000000
+ 23006 multiletter control sequences out of 15000+200000
  16676 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,11n,55p,435b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1505,9 +1518,9 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/
 Users/ms486/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbo
 ls/msam7.pfb><C:/Users/ms486/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/symbols/msbm10.pfb>
-Output written on PanelMethods.pdf (63 pages, 1884006 bytes).
+Output written on PanelMethods.pdf (69 pages, 1897988 bytes).
 PDF statistics:
- 535 PDF objects out of 1000 (max. 8388607)
- 134 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 613 PDF objects out of 1000 (max. 8388607)
+ 148 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 

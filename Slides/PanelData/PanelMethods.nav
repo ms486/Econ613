@@ -115,7 +115,7 @@
 \headcommand {\beamer@framepages {52}{52}}
 \headcommand {\slideentry {3}{0}{6}{53/53}{}{0}}
 \headcommand {\beamer@framepages {53}{53}}
-\headcommand {\sectionentry {4}{Discrete Choice with Panel Data}{54}{Discrete Choice with Panel Data}{0}}
+\headcommand {\sectionentry {4}{Recap Issues day}{54}{Recap Issues day}{0}}
 \headcommand {\beamer@sectionpages {48}{53}}
 \headcommand {\beamer@subsectionpages {48}{53}}
 \headcommand {\slideentry {4}{0}{1}{54/54}{}{0}}
@@ -124,25 +124,43 @@
 \headcommand {\beamer@framepages {55}{55}}
 \headcommand {\slideentry {4}{0}{3}{56/56}{}{0}}
 \headcommand {\beamer@framepages {56}{56}}
-\headcommand {\slideentry {4}{0}{4}{57/57}{}{0}}
+\headcommand {\sectionentry {5}{Discrete Choice with Panel Data}{57}{Discrete Choice with Panel Data}{0}}
+\headcommand {\beamer@sectionpages {54}{56}}
+\headcommand {\beamer@subsectionpages {54}{56}}
+\headcommand {\slideentry {5}{0}{1}{57/57}{}{0}}
 \headcommand {\beamer@framepages {57}{57}}
-\headcommand {\sectionentry {5}{Survival Analysis}{58}{Survival Analysis}{0}}
-\headcommand {\beamer@sectionpages {54}{57}}
-\headcommand {\beamer@subsectionpages {54}{57}}
-\headcommand {\slideentry {5}{0}{1}{58/58}{}{0}}
+\headcommand {\slideentry {5}{0}{2}{58/58}{}{0}}
 \headcommand {\beamer@framepages {58}{58}}
-\headcommand {\slideentry {5}{0}{2}{59/59}{}{0}}
+\headcommand {\slideentry {5}{0}{3}{59/59}{}{0}}
 \headcommand {\beamer@framepages {59}{59}}
-\headcommand {\slideentry {5}{0}{3}{60/60}{}{0}}
+\headcommand {\slideentry {5}{0}{4}{60/60}{}{0}}
 \headcommand {\beamer@framepages {60}{60}}
-\headcommand {\slideentry {5}{0}{4}{61/61}{}{0}}
+\headcommand {\slideentry {5}{0}{5}{61/61}{}{0}}
 \headcommand {\beamer@framepages {61}{61}}
-\headcommand {\slideentry {5}{0}{5}{62/62}{}{0}}
+\headcommand {\sectionentry {6}{Survival Analysis}{62}{Survival Analysis}{0}}
+\headcommand {\beamer@sectionpages {57}{61}}
+\headcommand {\beamer@subsectionpages {57}{61}}
+\headcommand {\slideentry {6}{0}{1}{62/62}{}{0}}
 \headcommand {\beamer@framepages {62}{62}}
-\headcommand {\slideentry {5}{0}{6}{63/63}{}{0}}
+\headcommand {\slideentry {6}{0}{2}{63/63}{}{0}}
 \headcommand {\beamer@framepages {63}{63}}
-\headcommand {\beamer@partpages {1}{63}}
-\headcommand {\beamer@subsectionpages {58}{63}}
-\headcommand {\beamer@sectionpages {58}{63}}
-\headcommand {\beamer@documentpages {63}}
-\headcommand {\def \inserttotalframenumber {63}}
+\headcommand {\slideentry {6}{0}{3}{64/64}{}{0}}
+\headcommand {\beamer@framepages {64}{64}}
+\headcommand {\slideentry {6}{0}{4}{65/65}{}{0}}
+\headcommand {\beamer@framepages {65}{65}}
+\headcommand {\slideentry {6}{0}{5}{66/66}{}{0}}
+\headcommand {\beamer@framepages {66}{66}}
+\headcommand {\sectionentry {7}{Final words}{67}{Final words}{0}}
+\headcommand {\beamer@sectionpages {62}{66}}
+\headcommand {\beamer@subsectionpages {62}{66}}
+\headcommand {\slideentry {7}{0}{1}{67/67}{}{0}}
+\headcommand {\beamer@framepages {67}{67}}
+\headcommand {\slideentry {7}{0}{2}{68/68}{}{0}}
+\headcommand {\beamer@framepages {68}{68}}
+\headcommand {\slideentry {7}{0}{3}{69/69}{}{0}}
+\headcommand {\beamer@framepages {69}{69}}
+\headcommand {\beamer@partpages {1}{69}}
+\headcommand {\beamer@subsectionpages {67}{69}}
+\headcommand {\beamer@sectionpages {67}{69}}
+\headcommand {\beamer@documentpages {69}}
+\headcommand {\def \inserttotalframenumber {69}}
