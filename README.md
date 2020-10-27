@@ -5,3 +5,4 @@ The folder contains several directories:
 - Class notes are located in the Slides folder. In addition to the pdfs, the codes used in the applications part are provided as well as the Tex files.
 - Assignments and solutions are posted in Assignment Folder.
 - Issues Days lists some topics for student presentation.
+- The recommanded software for this class is R, using the IDE Rstudio
