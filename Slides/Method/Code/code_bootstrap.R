@@ -13,7 +13,7 @@ summary(reg)
 #=====================================
 # first example of bootstrap..
 #=====================================
-R    = 999;                      # number of bootstrap
+R    = 999;                      # number of bootstraps
 nind = nrow(CPS1985);            # number of individuals
 nvar = length(reg$coefficients)  # number of variables
 
@@ -56,9 +56,7 @@ dfn = function(x)
 
 num_gradient = function(x)
 {
-  nx  = length(x)
   h   = 0.00001
-  out = NULL
   ef1 =  fn(x+h)
   ef0 =  fn(x-h)
   dfn = (ef1-ef0)/(2*h)
