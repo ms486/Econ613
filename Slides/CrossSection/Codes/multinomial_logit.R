@@ -123,14 +123,14 @@ df_est  = data.matrix(dat_est)
 # multinomial logit 
 #==========================================
 
-like_fun = function(param,dat_est)
+like_fun = function(param,dat_est,dat_school)
 {
   avgscore08 =  dat_est$avgscore08
   male       =  dat_est$male
   jqual      =  dat_est$jqual
-  colonial   =  dat_est$colonial
-  board      =  dat_est$board
-  ch         =  dat_est$choice
+  colonial   =  dat_school$colonial
+  board      =  dat_school$board
+  ch         =  dat_school$choice
   ni = nrow(df_est)
   nj = length(unique(df_est[,32]))
   ut = mat.or.vec(ni,nj)

@@ -1,3 +1,7 @@
+#================================
+# codes for multinomial choices 
+#================================
+
 #=====================
 library(mlogit)
 library(stargazer)
