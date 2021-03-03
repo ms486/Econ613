@@ -115,6 +115,7 @@ dat_indiv[1:10,]
 dat_school[1:10,]
 dat_choices[1:10,]
 
+library(dplyr)
 dat_est = dat_indiv %>% left_join(dat_choices) %>% dplyr::select(1:8,10) %>% rename("ch"=ch1) %>% left_join(dat_school)
 dat_est = dat_est %>% mutate(choice=as.numeric(factor(ch,ordered=TRUE))) %>% drop_na()
 df_est  = data.matrix(dat_est) 
@@ -134,20 +135,22 @@ like_fun = function(param,dat_est,dat_school)
   ni = nrow(df_est)
   nj = length(unique(df_est[,32]))
   ut = mat.or.vec(ni,nj)
+  # multinomial logit
+  pn1    = param[1:nj]
+  pn2    = param[(nj+1):(2*nj)]
+  pn3    = param[(2*nj+1):(3*nj)]
+  pn4    = param[(3*nj+1):(4*nj)]
+  
   for (j in 1:nj)
   {
     # conditional logit
-    ut[,j] = param[1] + param[2]*avgscore08[j] + param[2]*jqual[j] + param[3]*colonial[j] + param[4]*board[j]
+    ut[,j] = param[1] + param[2]*avgscore08[j]+ param[3]*colonial[j] + param[4]*board[j]
     # conditional logit
-    ut[,j] = param[1] + param[2]*avgscore08[j] + param[2]*jqual[j] + param[3]*colonial[j] + param[4]*colonial + param[5]*male*jqual
-                      + param[6]*male*colonial[j];   
+    ut[,j] = param[1] + param[2]*avgscore08[j] + param[3]*colonial[j] + param[4]*male*jqual[j]
+                      + param[5]*male*colonial[j];   
     # multinomial logit
-    pn1    = param[1:nj]
-    pn2    = param[(nj+1):(2*nj)]
-    pn3    = param[(2*nj+1):(3*nj)]
-    pn4    = param[(3*nj+1):(4*nj)]
-    ut[,j] = male*pn1 + jqual*pn2 
-    ut[,j] = male*pn1 + jqual*pn2 + avg[j]*male*pn3 + colonial[j]*jqual*pn4 
+    ut[,j] = male*pn1[j] + jqual*pn2[j] 
+    ut[,j] = male*pn1[j] + jqual*pn2[j] + avgscore08[j]*male*pn3[j] + colonial[j]*jqual*pn4[j] 
   }
   prob   = exp(ut)            # exp(XB)
   #sprob  = rowsums(prob)      # sum_j exp(XB) denominator
@@ -156,7 +159,7 @@ like_fun = function(param,dat_est,dat_school)
   probc = NULL
   for (i in 1:ni)
   {
-    probc = prob[,choice]
+    probc[i] = prob[i,choice[i]]
   }
   probc[probc>0.999999] = 0.999999
   probc[probc<0.000001] = 0.000001
