@@ -1,6 +1,5 @@
 Instructions for the reading notes.
 
-
 1 - Explain the main idea of the article.
 2 - Provide a summary of the econometric techniques used to provide empirical evidences
 3 - Present the results and provide concluding remarks on possible limitations.. 
