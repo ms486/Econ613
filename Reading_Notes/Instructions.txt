@@ -1,7 +1,5 @@
 Instructions for the reading notes.
 
-Select one article out the possible 5. 
-
 
 1 - Explain the main idea of the article.
 2 - Provide a summary of the econometric techniques used to provide empirical evidences
@@ -18,7 +16,6 @@ Introduction
 
 Body.
 • Overview of the theoretical foundation.
-• Overview of the data and empirical strategy.
 • Overview of the data and empirical strategy.
 • Overview of the findings.
 
