@@ -1,0 +1,87 @@
+\PassOptionsToPackage{table}{xcolor}
+\documentclass{beamer}
+\usepackage{setspace,geometry,booktabs,graphicx,colortbl}
+\usepackage{amsmath, amsthm, amssymb,amsfonts,mathrsfs,multirow,booktabs}
+\usepackage{verbatim,fancyhdr,upgreek}
+\usepackage[section] {placeins}
+\usepackage{rotating,rotfloat}
+\usepackage{hyperref,fancyhdr,natbib}
+\usepackage[flushleft]{threeparttable}
+\newtheorem{proposition}{Proposition}
+%\usetheme{Hannover}
+\usetheme{CambridgeUS}
+\usepackage{setspace,amsmath,amssymb,tabularx,eurosym,multirow,hyperref,cmll}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\def\ci{\perp\!\!\!\perp}
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\g}{\boldsymbol{g}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\w}{\boldsymbol{w}}
+\newcommand{\ce}{\boldsymbol{c}}
+\newcommand{\ve}{\boldsymbol{v}}
+
+\newcommand{\Ne}{\mathcal{N}}
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\Le}{\mathcal{I}}
+\newcommand{\Je}{\mathcal{J}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\s}{\textsc{s}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\A}{\mathcal{A}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\Lik}{\mathcal{L}}
+
+\makeatletter
+\DeclareRobustCommand{\sqcdot}{\mathbin{\mathpalette\morphic@sqcdot\relax}}
+\newcommand{\morphic@sqcdot}[2]{%
+  \sbox\z@{$\m@th#1\centerdot$}%
+  \ht\z@=.33333\ht\z@
+  \vcenter{\box\z@}%
+}
+\makeatother
+
+
+\pdfoutput=1
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{tabu}
+
+\setbeamertemplate{section page}
+{
+    \begin{centering}
+    \begin{beamercolorbox}[sep=10pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \end{centering}
+}
+
+\setbeamercolor{alerted text}{fg=red} \setbeamertemplate{navigation symbols}{}
+
+\title[Oral Exam]{Questions}
+\author[M. Sidibe]{}
+                    
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Introduction}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+
+\bibliographystyle{apalike}
+\bibliography{matching}
+
+\end{document}

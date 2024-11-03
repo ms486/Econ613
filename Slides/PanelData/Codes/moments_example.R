@@ -60,6 +60,7 @@ mm_sim = function(param,emp_mom)
 }
 
 start = c(3.7524794,-1.1654526,0.5193245,-5.2488761,0.4979038)
+start = runif(5)
 res  = optim(start,fn=mm_sim,method="BFGS",control=list(trace=6,REPORT=1,maxit=1000),emp_mom=mom[-1])
 
 param    = res$par
@@ -96,15 +97,18 @@ for (iN in 1:nboot)
 }
 
 vs = apply(mom_mat,1,var)
+vs
+
+mm_sim(start)
 
 mm_sim = function(param,emp_mom,vs)
 {
-  nsim    = 50
+  nsim    = 500
   sim_mom = mat.or.vec(5,nsim)
   for (iS in 1:nsim)
   {
-    draw1    = rnorm(1000,param[1],exp(param[2]))
-    draw2    = rnorm(1000,param[3],exp(param[4]))
+    draw1    = rnorm(100000,param[1],exp(param[2]))
+    draw2    = rnorm(100000,param[3],exp(param[4]))
     lambda   = exp(param[5])/(1+exp(param[5]))
     # form the mixture
     draw         = lambda*draw1 + (1-lambda)*draw2
@@ -117,6 +121,9 @@ mm_sim = function(param,emp_mom,vs)
 }
 
 start = c(-0.2029413,0.6773643,2.4927606,-1.4250393,-5.7520823)
+mm_sim(start,mom[-1],vs)
+mm_sim(start,mom[-1],vs)
+
 res  = optim(start,fn=mm_sim,method="BFGS",control=list(trace=6,REPORT=1,maxit=1000),emp_mom=mom[-1],vs=vs)
 
 param    = res$par

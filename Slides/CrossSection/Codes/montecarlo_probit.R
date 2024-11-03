@@ -52,7 +52,6 @@ res      = optim(start,fn=flike,method="BFGS",control=list(trace=6,maxit=1000),x
 out[i0,] = res$par
 }
 
-#===========================================
 start = runif(4)
 res  = optim(start,fn=flike,method="BFGS",control=list(trace=6,REPORT=1,maxit=1000),x1=x1,x2=x2,x3=x3,yvar=yvar,hessian=TRUE)
 
